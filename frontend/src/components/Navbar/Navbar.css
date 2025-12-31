@@ -20,7 +20,7 @@
   z-index: 1000;
   backdrop-filter: blur(14px);
 
-  background: rgb(80, 60, 60);
+  background: rgb(188, 92, 92);
   border-bottom: 1px solid var(--border-glass);
 }
 
