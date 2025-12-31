@@ -1,18 +1,18 @@
 /* ===============================
-   ROOT VARIABLES
+   ROOT VARIABLES
 ================================ */
-/* :root {
-  --bg-glass: rgba(15, 23, 42, 0.75);
-  --border-glass: rgba(148, 163, 253, 0.18);
+:root {
+  --bg-glass: rgba(255, 255, 255, 0.8);
+  --border-glass: rgba(203, 213, 225, 0.5);
   --accent: #6366f1;
   --accent-soft: rgba(99, 102, 241, 0.15);
-  --text-main: #e5edff;
-  --text-muted: #a5b4fc;
-  --bg-dark: #0f172a;
-} */
+  --text-main: #1f2937;
+  --text-muted: #4b5563;
+  --bg-light: #f9fafb;
+}
 
 /* ===============================
-   NAVBAR WRAPPER
+   NAVBAR WRAPPER
 ================================ */
 .navbar {
   position: sticky;
@@ -20,7 +20,7 @@
   z-index: 1000;
   backdrop-filter: blur(14px);
 
-  background: rgb(188, 92, 92);
+  background: var(--bg-glass);
   border-bottom: 1px solid var(--border-glass);
 }
 
@@ -35,14 +35,14 @@
 }
 
 /* ===============================
-   BRAND
+   BRAND
 ================================ */
 .navbar-brand img {
   height: 40px;
 }
 
 /* ===============================
-   NAV LINKS (DESKTOP)
+   NAV LINKS (DESKTOP)
 ================================ */
 .navbar-links {
   display: flex;
@@ -64,7 +64,7 @@
 }
 
 /* ===============================
-   DROPDOWN (DESKTOP)
+   DROPDOWN (DESKTOP)
 ================================ */
 .mega-dropdown:hover .dropdown-menu-container {
   opacity: 1;
@@ -83,7 +83,7 @@
 }
 
 /* ===============================
-   MEGA MENU (DESKTOP)
+   MEGA MENU (DESKTOP)
 ================================ */
 .dropdown-menu-container {
   position: absolute;
@@ -92,11 +92,11 @@
   width: 720px;
   display: grid;
   grid-template-columns: 1fr 2fr;
-  background: rgba(15, 23, 42, 0.95);
+  background: var(--bg-light);
   border: 1px solid var(--border-glass);
   border-radius: 14px;
   padding: 20px;
-  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.1);
 
   opacity: 0;
   visibility: hidden;
@@ -105,7 +105,7 @@
 }
 
 /* ===============================
-   CATEGORIES
+   CATEGORIES
 ================================ */
 .program-categories {
   display: flex;
@@ -126,11 +126,11 @@
 .category-link:hover,
 .category-link.active {
   background: var(--accent-soft);
-  color: #c7d2fe;
+  color: var(--accent);
 }
 
 /* ===============================
-   COURSE DETAILS
+   COURSE DETAILS
 ================================ */
 .course-details {
   padding-left: 18px;
@@ -141,7 +141,7 @@
 
 .details-header {
   font-size: 15px;
-  color: #c7d2fe;
+  color: var(--accent);
   margin-bottom: 6px;
 }
 
@@ -167,12 +167,12 @@
 }
 
 .placeholder-text {
-  color: #94a3b8;
+  color: #6b7280;
   font-size: 14px;
 }
 
 /* ===============================
-   RIGHT SIDE
+   RIGHT SIDE
 ================================ */
 .navbar-right {
   display: flex;
@@ -182,7 +182,7 @@
 
 /* SEARCH */
 .nav-search input {
-  background: rgba(30, 41, 59, 0.6);
+  background: rgba(243, 244, 246, 0.8);
   border: 1px solid var(--border-glass);
   border-radius: 999px;
   padding: 8px 14px;
@@ -192,13 +192,13 @@
 }
 
 .nav-search input::placeholder {
-  color: #94a3b8;
+  color: #6b7280;
 }
 
 /* USER */
 .navbar-user {
   font-size: 14px;
-  color: #c7d2fe;
+  color: var(--text-main);
 }
 
 /* BUTTONS */
@@ -220,22 +220,17 @@
 }
 
 /* ===============================
-   MOBILE OVERLAY MENU
+   MOBILE OVERLAY MENU
 ================================ */
 .mobile-menu-overlay {
   position: fixed;
   top: 72px;
-  /* Start below the main navbar */
   left: 0;
   width: 100%;
   height: calc(100% - 72px);
-  /* Full height below the navbar */
-  background: var(--bg-dark);
-  /* Use a solid color for better readability on mobile */
+  background: var(--bg-light);
   z-index: 990;
   overflow-y: auto;
-
-  /* Initially hidden and off-screen */
   transform: translateX(100%);
   transition: transform 0.3s ease-out;
 }
@@ -253,7 +248,6 @@
 /* Mobile Search */
 .mobile-search {
   order: -1;
-  /* Place at the top of the mobile content */
   margin-bottom: 20px;
 }
 
@@ -261,6 +255,8 @@
   width: 100%;
   padding: 12px 16px;
   font-size: 16px;
+  color: var(--text-main);
+  background: #f3f4f6;
 }
 
 /* Mobile Nav Items */
@@ -270,6 +266,7 @@
   border-bottom: 1px solid var(--border-glass);
   font-size: 17px;
   width: 100%;
+  color: var(--text-main);
 }
 
 .mobile-nav-content .nav-item:last-of-type {
@@ -278,18 +275,14 @@
 
 /* Mobile Dropdown Styling */
 .mobile-dropdown {
-  /* Ensure the dropdown content is visible when active */
   overflow: visible;
 }
 
-/* Mobile Mega Menu (Dropdown Menu Container) */
+/* Mobile Mega Menu */
 .mobile-mega-content {
-  /* Stack content vertically */
   display: flex;
   flex-direction: column;
   gap: 15px;
-
-  /* Remove the glass effect/border for clean mobile look */
   background: transparent;
   border: none;
   padding: 0;
@@ -334,11 +327,10 @@
 }
 
 /* ===============================
-   MOBILE BUTTON
+   MOBILE BUTTON
 ================================ */
 .mobile-menu-btn {
   display: none;
-  /* Initially hidden on desktop */
   background: none;
   border: none;
   color: var(--text-main);
@@ -347,62 +339,41 @@
 }
 
 /* ---------------------------------
-   RESPONSIVE MEDIA QUERIES
-  --------------------------------- */
-
-/* --- TABLET/SMALLER LAPTOPS (Max-Width 1024px) --- */
+   RESPONSIVE MEDIA QUERIES
+--------------------------------- */
 @media (max-width: 1024px) {
-
-  /* Hide DESKTOP elements */
-  .navbar-links {
-    display: none;
-  }
-
-  .nav-search {
-    display: none;
-  }
-
-  .navbar-user {
-    display: none;
-  }
-
+  .navbar-links,
+  .nav-search,
+  .navbar-user,
   .btn-ghost {
     display: none;
   }
 
-  /* Show the mobile menu button */
   .mobile-menu-btn {
     display: block;
   }
 
-  /* Remove the desktop mega-menu hover effect */
   .mega-dropdown:hover .dropdown-menu-container {
     opacity: 0;
     visibility: hidden;
   }
 }
 
-/* --- MOBILE DEVICES (Max-Width 768px) --- */
 @media (max-width: 768px) {
   .navbar-container {
-    /* Reduce horizontal padding */
     padding: 0 16px;
-    /* Reduce height slightly */
     height: 64px;
   }
 
-  /* Adjust the mobile menu position based on new navbar height */
   .mobile-menu-overlay {
     top: 64px;
     height: calc(100% - 64px);
   }
 
-  /* Reduce brand image size */
   .navbar-brand img {
     height: 32px;
   }
 
-  /* Adjust button size for touch targets */
   .btn {
     padding: 8px 16px;
     font-size: 15px;
