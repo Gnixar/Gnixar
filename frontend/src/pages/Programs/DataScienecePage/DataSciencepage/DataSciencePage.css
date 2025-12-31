@@ -1,0 +1,232 @@
+.ds-page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  font-family: system-ui, sans-serif;
+}
+
+.ds-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.ds-header h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #e5edff;
+}
+
+.ds-header p {
+  font-size: 1rem;
+  color: #94a3b8;
+  margin-top: 8px;
+}
+
+/* Grid for programs */
+.ds-programs {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+
+.program-card {
+  background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.18), rgba(15, 23, 42, 0.96));
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.12);
+  transition: transform 300ms cubic-bezier(0.25, 0.8, 0.25, 1),
+    box-shadow 300ms cubic-bezier(0.25, 0.8, 0.25, 1);
+  position: relative;
+}
+
+.program-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 16px 40px rgba(15, 23, 42, 0.2);
+}
+
+.program-image-wrapper {
+  position: relative;
+  width: 100%;
+  height: 180px;
+  overflow: hidden;
+}
+
+.program-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 250ms ease;
+}
+
+.program-card:hover .program-image {
+  transform: scale(1);
+}
+
+
+.program-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top,
+      rgba(15, 23, 42, 0.85),
+      rgba(15, 23, 42, 0.2));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(20px);
+  transition: transform 300ms ease, opacity 300ms ease;
+}
+
+.program-card:hover .program-overlay {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+/* Register button */
+.register-btn {
+  padding: 10px 20px;
+  border-radius: 999px;
+  border: none;
+  font-size: 0.95rem;
+  font-weight: 600;
+  background: #4f46e5;
+  color: #ffffff;
+  cursor: pointer;
+  box-shadow: 0 6px 16px rgba(79, 70, 229, 0.55);
+  transform: translateY(4px);
+  transition: transform 150ms ease, box-shadow 150ms ease, background 150ms ease;
+}
+
+.register-btn:hover {
+  transform: translateY(-2px) scale(1.05);
+  /* box-shadow: 0 10px 20px rgba(79, 70, 229, 0.7); */
+  background: #4338ca;
+  animation: pulse 1s infinite alternate;
+}
+
+@keyframes pulse {
+  0% {
+    transform: translateY(-2px) scale(1.05);
+  }
+
+  100% {
+    transform: translateY(-4px) scale(1.08);
+  }
+}
+
+/* Content below image */
+.program-content {
+  padding: 18px 18px 20px;
+}
+
+/* Logo + title */
+.program-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.program-logo-wrapper {
+  width: 40px;
+  height: 40px;
+  border-radius: 999px;
+  background: #eef2ff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.program-logo {
+  max-width: 35px;
+  max-height: 35px;
+  object-fit: contain;
+}
+
+.program-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  /* FIX: Ensure dark text on the light program card background */
+  color: #111827;
+}
+
+/* Meta info (date, duration, mode) */
+.program-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.meta-item {
+  min-width: 45%;
+  display: flex;
+  flex-direction: column;
+}
+
+.meta-label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #94a3b8;
+  margin-bottom: 2px;
+}
+
+.meta-value {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #e2e8f0;
+}
+
+.program-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  box-shadow: inset 0 -10px 20px rgba(0, 0, 0, 0.03);
+  border-radius: 16px;
+}
+
+/* ============================
+    RESPONSIVE
+============================ */
+
+
+/* Tablet portrait (2 → 1 column) */
+@media (max-width: 768px) {
+  .ds-programs {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .program-image-wrapper {
+    height: 160px;
+  }
+
+  .program-title {
+    font-size: 1rem;
+  }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .ds-header h1 {
+    font-size: 1.8rem;
+  }
+
+  .ds-header p {
+    font-size: 0.9rem;
+  }
+
+  .program-image-wrapper {
+    height: 150px;
+  }
+
+  .register-btn {
+    padding: 8px 16px;
+    font-size: 0.85rem;
+  }
+}

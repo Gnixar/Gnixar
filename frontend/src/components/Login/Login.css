@@ -1,0 +1,206 @@
+/* ---------------- BACKDROP ---------------- */
+.login-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5); /* slightly lighter overlay */
+    backdrop-filter: blur(6px); /* stronger blur for elegance */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    padding: 20px;
+    font-family: 'Inter', sans-serif;
+}
+
+/* ---------------- MODAL ---------------- */
+.login-modal {
+    width: clamp(320px, 85%, 420px);
+    background: linear-gradient(145deg, #111827, #1e293b, #111827); /* darker, matches body */
+    color: #e5e7eb;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    padding: 30px 35px;
+    border-radius: 16px;
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.6); /* deeper shadow for contrast */
+    animation: fadeIn 0.4s ease-in-out;
+    position: relative;
+}
+
+/* ---------------- MODAL TITLE ---------------- */
+.login-title {
+    font-size: 26px;
+    font-weight: 700;
+    color: #a5b4fc; /* changed from yellow */
+    text-align: center;
+    margin-bottom: 12px;
+}
+/* ---------------- CLOSE BUTTON ---------------- */
+.login-close-btn {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    background: transparent;
+    border: none;
+    font-size: 28px;
+    color: #a5b4fc; /* changed from yellow */
+    cursor: pointer;
+    transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.login-close-btn:hover {
+    color: #818cf8; /* changed from orange */
+    transform: scale(1.2);
+}
+
+/* ---------------- FORM ---------------- */
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+/* ---------------- FORM ROW ---------------- */
+.login-row {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+/* ---------------- LABEL ---------------- */
+.login-row label {
+    font-size: 14px;
+    font-weight: 500;
+    color: #cbd5e1;
+}
+
+/* ---------------- INPUT ---------------- */
+.login-input {
+    padding: 12px 14px;
+    border-radius: 10px;
+    border: 1px solid #374151;
+    background-color: #1f2937;
+    color: #e5e7eb;
+    font-size: 15px;
+    outline: none;
+    transition: all 0.25s ease;
+}
+
+.login-input::placeholder {
+    color: #9ca3af;
+}
+
+.login-input:focus {
+    border-color: #60a5fa;
+    box-shadow: 0 4px 12px rgba(96, 165, 250, 0.3);
+    transform: translateY(-1px);
+}
+
+/* ---------------- BUTTON ---------------- */
+.login-btn {
+    padding: 12px;
+    border-radius: 10px;
+    border: none;
+    font-size: 16px;
+    font-weight: 600;
+    color: white;
+    background: linear-gradient(135deg, #3b82f6, #2563eb); /* blue gradient */
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 6px 18px rgba(37, 99, 235, 0.35);
+}
+
+.login-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(37, 99, 235, 0.45);
+}
+
+.login-btn:active {
+    transform: translateY(-1px) scale(0.98);
+}
+
+/* ---------------- FOOTER ---------------- */
+.login-footer {
+    text-align: center;
+    font-size: 14px;
+    color: #cbd5e1;
+    margin-top: 12px;
+}
+
+.login-footer button.login-switch {
+    background: none;
+    border: none;
+    color: #60a5fa;
+    font-weight: 600;
+    cursor: pointer;
+    margin-left: 5px;
+    transition: color 0.2s ease;
+}
+
+.login-footer button.login-switch:hover {
+    color: #3b82f6;
+    text-decoration: underline;
+}
+
+/* ---------------- TERMS CHECKBOX ---------------- */
+.login-modal-condition {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 13px;
+    color: #cbd5e1;
+}
+
+.login-modal-condition input {
+    margin-top: 2px;
+}
+
+/* ---------------- LINKS ---------------- */
+.login-modal p span {
+    color:  #60a5fa;
+    font-weight: 500;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.login-modal p span:hover {
+    color:  #60a5fa;
+}
+
+/* ---------------- ANIMATION ---------------- */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(15px) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* ---------------- RESPONSIVE ---------------- */
+@media (max-width: 480px) {
+    .login-modal {
+        width: 90%;
+        padding: 25px;
+        gap: 18px;
+    }
+
+    .login-title {
+        font-size: 22px;
+    }
+
+    .login-input {
+        padding: 10px;
+        font-size: 14px;
+    }
+
+    .login-btn {
+        font-size: 15px;
+        padding: 10px;
+    }
+}

@@ -1,0 +1,129 @@
+
+
+/* Heading container - The main card element */
+.course-main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 100vw;
+} 
+.course-header {
+  width: 90%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 10px 20px;
+  border-radius: 50px;
+  background: #ffffff;
+  /* Added a subtle border for depth on light backgrounds */
+  border: 1px solid #f1f5f9; 
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+}
+
+/* Left side: logo + text */
+.course-header-left {
+  display: flex;
+  align-items: center;
+  gap: 20px; /* Increased gap */
+  /* Ensures the text doesn't shrink unnecessarily when button is visible */
+  min-width: 0; 
+}
+
+.course-logo-wrapper {
+  width: 70px;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.course-logo {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.course-text {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  /* Prevents text from wrapping logo wrapper on small screens */
+  min-width: 0; 
+}
+
+.course-provider {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #6b7280;
+  margin: 0;
+  font-weight: 500; /* Added slight boldness */
+}
+
+.course-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #111827;
+  margin: 0;
+  /* FIX: Ensures long title text wraps cleanly */
+  overflow-wrap: break-word; 
+}
+
+/* Right side: button */
+.course-header-right {
+  flex-shrink: 0;
+}
+
+.course-register-btn {
+  padding: 10px 22px;
+  border-radius: 999px;
+  border: none;
+  font-size: 0.95rem;
+  font-weight: 600;
+  background: #4f46e5;
+  color: #ffffff;
+  cursor: pointer;
+  /* Added a slightly stronger shadow contrast */
+  box-shadow: 0 8px 20px rgba(79, 70, 229, 0.6); 
+  transition: transform 150ms ease, box-shadow 150ms ease, background 150ms ease;
+  white-space: nowrap; /* Prevents button text from wrapping */
+}
+
+.course-register-btn:hover {
+  transform: translateY(-2px); /* Increased lift on hover */
+  box-shadow: 0 14px 28px rgba(79, 70, 229, 0.75); /* Stronger shadow */
+  background: #4338ca;
+}
+
+/* Mobile responsive */
+@media (max-width: 640px) {
+  .course-header {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px; /* Reduced horizontal padding slightly */
+  }
+
+  .course-header-left {
+    /* Ensures the logo and text take full width on mobile */
+    width: 100%; 
+    margin-bottom: 15px; /* Added separation from the button */
+  }
+  
+  /* FIX: Ensure title text can use the full width */
+  .course-text {
+      width: 100%;
+  }
+
+  .course-header-right {
+    width: 100%;
+  }
+
+  .course-register-btn {
+    width: 100%;
+    /* text-align: center; is now handled by the button's inline-flex properties */
+    display: flex; /* Ensure button stretches */
+    justify-content: center; /* Center the text inside the button */
+  }
+}

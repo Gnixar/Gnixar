@@ -1,0 +1,122 @@
+.faq-container {
+  width: 90%;
+  max-width: 900px;
+  margin: 4rem auto;
+  padding: 1rem 0;
+  animation: fadeInSimple 1s ease forwards;
+}
+
+.faq-title {
+  font-family: 'Titan One', cursive;
+  text-align: center;
+  font-size: 2.5rem;
+  color: #93c5fd; /* neon-ish blue */
+  margin-bottom: 0.5rem;
+}
+
+.faq-subtitle {
+  text-align: center;
+  font-size: 1rem;
+  color: #cbd5e1;
+  margin-bottom: 2rem;
+}
+
+.faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.faq-item {
+  border-radius: 15px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.faq-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.4);
+}
+
+.faq-question {
+  width: 100%;
+  background: none;
+  border: 1px solid rgba(147, 197, 253, 0.2);
+  padding: 1rem 1.5rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-align: left;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #e5edff;
+  cursor: pointer;
+  transition: background 0.3s ease, border 0.3s ease;
+  border-radius: 15px;
+}
+
+.faq-question:hover {
+  background: rgba(147, 197, 253, 0.05);
+  border-color: #93c5fd;
+}
+
+.faq-icon {
+  transition: transform 0.3s ease, color 0.3s ease;
+  color: #93c5fd;
+}
+
+.faq-icon.rotate {
+  transform: rotate(180deg);
+  color: #60a5fa;
+}
+
+.faq-answer {
+  padding: 0.75rem 1.5rem 1.5rem 1.5rem;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #cbd5e1;
+  border-left: 3px solid #93c5fd;
+  animation: fadeInSimple 0.4s ease forwards;
+  overflow: hidden;
+}
+
+/* Fade-in animation */
+@keyframes fadeInSimple {
+  0% { opacity: 0; transform: translateY(10px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .faq-title {
+    font-size: 2.2rem;
+  }
+  .faq-subtitle {
+    font-size: 0.95rem;
+  }
+  .faq-question {
+    font-size: 1rem;
+    padding: 0.9rem 1.2rem;
+  }
+  .faq-answer {
+    font-size: 0.95rem;
+    padding: 0.6rem 1.2rem 1.2rem 1.2rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .faq-title {
+    font-size: 1.8rem;
+  }
+  .faq-subtitle {
+    font-size: 0.9rem;
+  }
+  .faq-question {
+    font-size: 0.95rem;
+    padding: 0.75rem 1rem;
+  }
+  .faq-answer {
+    font-size: 0.9rem;
+    padding: 0.5rem 1rem 1rem 1rem;
+  }
+}

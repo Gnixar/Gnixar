@@ -1,0 +1,355 @@
+/* ===== CONTAINER / PAGE WRAPPER ===== */
+
+.course-page {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 40px 16px; 
+  font-family: system-ui, sans-serif;
+  height: 60vh;
+  margin: 0 auto;
+  color: #e5edff;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle background grid / pattern - make it faint + bluish */
+.course-page::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(30, 64, 175, 0.14) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(30, 64, 175, 0.14) 1px, transparent 1px);
+  background-size: 40px 40px;
+  opacity: 0.35;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* removed outer glow as requested */
+.course-page::after {
+  display: none;
+}
+
+/* ===== HERO LAYOUT ===== */
+
+.course-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+  gap: 40px;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+.course-hero-left {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+/* Tagline + Progress indicator bar */
+
+.course-hero-tagline {
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: #a5b4fc;
+  margin: 0 0 4px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.course-hero-tagline::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: #6366f1;
+  box-shadow: 0 0 0 6px rgba(99, 102, 241, 0.25);
+}
+
+.course-hero-tagline::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, rgba(129, 140, 248, 0.95), transparent);
+  opacity: 0.85;
+}
+
+/* Big title */
+.course-hero-title {
+  font-size: 2rem;
+  font-weight: 800;
+  margin: 0;
+  line-height: 1.2;
+  background: linear-gradient(90deg, #ffffff, #e5e7eb, #a5b4fc);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Description */
+.course-hero-description {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: #cbd5f5;
+  margin: 0;
+  max-width: 640px;
+}
+
+/* ===== HIGHLIGHTS (CHIPS) ===== */
+
+.course-hero-highlights {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 4px;
+}
+
+.hero-chip {
+  position: relative;
+  padding: 10px 14px;
+  border-radius: 18px;
+  background: rgba(15, 23, 42, 0.9);
+  display: flex;
+  flex-direction: column;
+  min-width: 150px;
+  border: 1px solid rgba(129, 140, 248, 0.4);
+  box-shadow:
+    0 18px 30px rgba(15, 23, 42, 0.9),
+    inset 0 0 0 1px rgba(148, 163, 255, 0.35);
+  backdrop-filter: blur(14px);
+  overflow: hidden;
+}
+
+/* Decorative corner */
+.hero-chip::before {
+  content: "";
+  position: absolute;
+  width: 52px;
+  height: 52px;
+  border-radius: 18px;
+  top: -26px;
+  right: -18px;
+  background: radial-gradient(circle at 30% 20%, #6366f1, transparent 65%);
+  opacity: 0.25;
+}
+
+/* left accent */
+.hero-chip::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 12px;
+  width: 3px;
+  height: 28px;
+  border-radius: 999px;
+  background: linear-gradient(180deg, #6366f1, #22d3ee);
+  opacity: 0.95;
+}
+
+.hero-chip-label {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #9ca3ff;
+  margin-bottom: 2px;
+}
+
+.hero-chip-value {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #e5edff;
+}
+
+/* ===== CTA BUTTONS ===== */
+
+.course-hero-cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 6px;
+}
+
+.course-register-btn {
+  padding: 11px 26px;
+  border-radius: 999px;
+  border: none;
+  font-size: 0.95rem;
+  font-weight: 600;
+  background: radial-gradient(circle at 20% 0%, #a5b4fc, #4f46e5);
+  color: #ffffff;
+  cursor: pointer;
+}
+
+
+
+
+/* ===== BODY BELOW ===== */
+
+.course-body-section {
+  margin-top: 40px;
+  position: relative;
+  z-index: 1;
+}
+
+.course-body-section h2 {
+  font-size: 1.3rem;
+  margin-bottom: 8px;
+  color: #e5edff;
+}
+
+.course-body-section h2::after {
+  content: "";
+  display: block;
+  width: 48px;
+  height: 2px;
+  margin-top: 4px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #6366f1, transparent);
+}
+
+/* ===== RESPONSIVE ===== */
+
+@media (max-width: 900px) {
+  .course-hero {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .course-hero-right {
+    order: -1;
+  }
+
+  .course-hero-title {
+    font-size: 1.7rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero-chip {
+    min-width: 48%;
+  }
+}
+
+
+/* Glass + neon box */
+.form-container {
+  max-width: 460px;
+  padding: 30px;
+  margin: 0 auto;
+  background: rgba(15, 23, 42, 0.55);
+  border-radius: 18px;
+  border: 1px solid rgba(148, 163, 184, 0.35);
+  backdrop-filter: blur(12px);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Decorative glowing gradient corner */
+.form-container::before {
+  content: "";
+  position: absolute;
+  top: -60px;
+  right: -60px;
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(99,102,241,0.5), transparent 70%);
+  filter: blur(28px);
+  pointer-events: none;
+  opacity: .45;
+}
+
+/* Title */
+.form-title {
+  text-align: center;
+  font-size: 1.45rem;
+  margin-bottom: 22px;
+  font-weight: 700;
+  background: linear-gradient(90deg,#fff,#dbeafe,#a5b4fc);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* layout */
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+/* floating effect / animated on focus */
+.form-group label {
+  margin-bottom: 6px;
+  font-weight: 500;
+  font-size: 0.9rem;
+  color: #cbd5f5;
+  transition: .25s cubic-bezier(.4,0,.2,1);
+}
+
+/* Base input */
+.input {
+  padding: 11px 12px;
+  border-radius: 10px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(148,163,184,0.35);
+  color: #fff;
+  font-size: 1rem;
+  transition: .3s;
+}
+
+/* Glow when focused */
+.input:focus {
+  outline: none;
+  border-color: #6d28d9;
+  box-shadow: 0 0 12px rgba(99,102,241,0.4);
+}
+
+/* label highlight on focus (unique touch) */
+.input:focus + label,
+.input:valid + label {
+  color: #a5b4fc;
+}
+
+/* error */
+.error {
+  border-color: #ef4444 !important;
+  box-shadow: 0 0 10px rgba(239,68,68, .4);
+}
+
+.error-msg {
+  color: #ef4444;
+  font-size: .8rem;
+  margin-top: 4px;
+}
+
+/* Submit - neon glow */
+.submit-btn {
+  padding: 12px 0;
+  border: none;
+  border-radius: 10px;
+  font-weight: 600;
+  background: linear-gradient(90deg, #6366f1, #3b82f6);
+  color: #fff;
+  letter-spacing: .5px;
+  cursor: pointer;
+  transition: .25s;
+  box-shadow:
+    0 0 0 2px rgba(148,163,184,0.25),
+    0 12px 26px rgba(37,99,235,0.5);
+}
+
+.submit-btn:hover {
+  transform: translateY(-2px) scale(1.015);
+  box-shadow:
+    0 0 0 2px rgba(148,163,184,0.45),
+    0 18px 38px rgba(37,99,235,0.8);
+}

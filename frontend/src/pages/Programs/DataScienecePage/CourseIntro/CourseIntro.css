@@ -1,0 +1,136 @@
+.course-intro {
+  padding: 60px 20px;
+  display: flex;
+  justify-content: center;
+  font-family: system-ui, sans-serif;
+}
+
+.course-card {
+  width: 1200px;
+  height: 60vh;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffffff;
+  background: linear-gradient(
+    to bottom, 
+    #ffffff 0%,             
+    rgba(255, 255, 255, 0.9) 20%, 
+    rgba(255, 255, 255, 0.4) 60%,
+    transparent 100%        
+);
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.1);
+}
+
+.intro-header {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.intro-header h1 {
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: darkblue;
+  margin-bottom: 12px;
+}
+
+.intro-header p {
+  font-size: 1rem;
+  color: black;
+  line-height: 1.6;
+}
+
+.features-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 24px;
+}
+
+.feature-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.feature-icon-wrapper {
+  background-color: #4f46e5;
+  color: #ffffff;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.feature-text h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: black;
+  margin-bottom: 4px;
+}
+
+.feature-text p {
+  font-size: 0.95rem;
+  color: rgb(210, 207, 207);
+  line-height: 1.4;
+}
+
+
+
+
+
+/* ============================
+   RESPONSIVE
+============================ */
+
+
+
+
+/* Tablet portrait */
+@media (max-width: 768px) {
+  .intro-header h1 {
+    font-size: 1.7rem;
+  }
+
+  .intro-header p {
+    font-size: 0.95rem;
+  }
+
+  .feature-text h3 {
+    font-size: 1rem;
+  }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .course-intro {
+    padding: 20px 14px;
+  }
+
+  .course-card {
+    padding: 20px;
+    height: auto;
+    box-shadow: 0 8px 18px rgba(15,23,42,0.08);
+  }
+
+  .features-list {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .feature-icon-wrapper {
+    width: 42px;
+    height: 42px;
+  }
+
+  .intro-header h1 {
+    font-size: 1.45rem;
+  }
+
+  .intro-header p {
+    font-size: 0.9rem;
+  }
+}

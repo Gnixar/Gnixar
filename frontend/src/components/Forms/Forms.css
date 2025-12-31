@@ -1,0 +1,189 @@
+/* ===== FORM OVERLAY ===== */
+.form-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* semi-transparent dark overlay */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+/* ===== FORM CONTAINER ===== */
+.unique-form-container {
+  max-width: 480px;
+  padding: 30px;
+  margin: 0 auto;
+  background: rgba(15, 23, 42, 0.55);
+  border-radius: 18px;
+  border: 1px solid rgba(148, 163, 184, 0.35);
+  backdrop-filter: blur(12px);
+  position: relative;
+  overflow: hidden;
+  min-height: 520px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+  animation: slideIn 0.3s ease-in-out;
+}
+
+/* Decorative glowing gradient corner */
+.unique-form-container::before {
+  content: "";
+  position: absolute;
+  top: -60px;
+  right: -60px;
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(99,102,241,0.5), transparent 70%);
+  filter: blur(28px);
+  pointer-events: none;
+  opacity: 0.45;
+}
+
+/* FORM TITLE */
+.form-title {
+  text-align: center;
+  font-size: 1.45rem;
+  margin-bottom: 22px;
+  font-weight: 700;
+  background: linear-gradient(90deg, #fff, #dbeafe, #a5b4fc);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* FORM LAYOUT */
+.unique-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.unique-form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+/* LABEL */
+.unique-form-group label {
+  margin-bottom: 6px;
+  font-weight: 500;
+  font-size: 0.9rem;
+  color: #cbd5f5;
+  transition: color .25s cubic-bezier(.4,0,.2,1);
+}
+
+/* INPUT FIELD */
+.unique-input {
+  padding: 11px 12px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(148, 163, 184, 0.35);
+  color: #fff;
+  font-size: 1rem;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+/* INPUT FOCUS GLOW */
+.unique-input:focus {
+  outline: none;
+  border-color: #6d28d9;
+  box-shadow: 0 0 12px rgba(99,102,241,0.4);
+}
+
+/* ERROR STATE */
+.unique-error {
+  border-color: #ef4444 !important;
+  box-shadow: 0 0 10px rgba(239,68,68,0.4);
+}
+
+.unique-error-msg {
+  color: #ef4444;
+  font-size: 0.8rem;
+  margin-top: 4px;
+}
+
+/* SUBMIT BUTTON */
+.form-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+/* Submit button: bigger, left side */
+.unique-submit-btn {
+  flex: 3; /* occupies more space */
+  padding: 12px 0;
+  border: none;
+  border-radius: 10px;
+  font-weight: 600;
+  background: linear-gradient(90deg, #6366f1, #3b82f6);
+  color: #fff;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  transition: all 0.25s;
+  box-shadow:
+    0 0 0 2px rgba(148,163,184,0.25),
+    0 12px 26px rgba(37,99,235,0.5);
+}
+
+.unique-submit-btn:hover {
+  transform: translateY(-2px) scale(1.015);
+  box-shadow:
+    0 0 0 2px rgba(148,163,184,0.45),
+    0 18px 38px rgba(37,99,235,0.8);
+}
+
+/* Cancel button: smaller, right side */
+.form-cancel-btn {
+  flex: 1; /* occupies less space */
+  padding: 11px;
+  border-radius: 10px;
+  background: transparent;
+  border: 1px solid rgba(148, 163, 184, 0.4);
+  color: #cbd5f5;
+  cursor: pointer;
+}
+
+.form-cancel-btn:hover {
+  background: rgba(148, 163, 184, 0.1);
+}
+
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .unique-form-container {
+    max-width: 90%;
+    padding: 24px;
+  }
+  .form-title { font-size: 1.35rem; margin-bottom: 18px; }
+  .unique-input { font-size: 0.95rem; padding: 10px 10px; }
+  .unique-submit-btn { font-size: 0.95rem; padding: 10px 0; }
+}
+
+@media (max-width: 520px) {
+  .unique-form-container { width: 100%; padding: 16px; }
+  .form-title { font-size: 1.25rem; margin-bottom: 14px; }
+  .unique-input { font-size: 0.9rem; padding: 9px 10px; }
+  .unique-submit-btn { font-size: 0.9rem; padding: 9px 0; }
+}
+
+@media (max-width: 360px) {
+  .form-title { font-size: 1.15rem; }
+  .unique-input { font-size: 0.85rem; padding: 8px 10px; }
+  .unique-submit-btn { font-size: 0.85rem; padding: 8px 0; }
+}
+
+/* ===== ANIMATIONS ===== */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideIn {
+  from { transform: translateY(-20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}

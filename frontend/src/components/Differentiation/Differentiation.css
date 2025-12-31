@@ -1,0 +1,122 @@
+.diff-section {
+  position: relative;
+  /* background: #020617; */
+  padding: 80px 20px;
+}
+
+.diff-inner {
+  max-width: 1120px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr);
+  gap: 48px;
+}
+
+/* LEFT SIDE */
+.diff-left {
+  position: sticky;
+  top: 120px;
+  align-self: flex-start;
+}
+
+.diff-kicker {
+  font-size: 0.75rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: #93c5fd;
+}
+
+.diff-title {
+  margin: 14px 0;
+  font-size: 2.4rem;
+  font-weight: 800;
+  line-height: 1.2;
+  background: linear-gradient(120deg, #e5edff, #bfdbfe);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.diff-title span {
+  background: linear-gradient(120deg, #38bdf8, #6366f1);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.diff-sub {
+  font-size: 0.95rem;
+  line-height: 1.8;
+  color: #cbd5f5;
+  max-width: 420px;
+}
+
+/* RIGHT SIDE */
+.diff-right {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.diff-card {
+  position: relative;
+  padding: 24px 24px 22px;
+  border-radius: 20px;
+  background: linear-gradient(
+    135deg,
+    rgba(15, 23, 42, 0.95),
+    rgba(15, 23, 42, 0.98)
+  );
+  border: 1px solid rgba(148, 163, 184, 0.45);
+  box-shadow: 0 20px 36px rgba(15, 23, 42, 0.9);
+}
+
+.diff-index {
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
+  color: #93c5fd;
+}
+
+.diff-card h3 {
+  margin: 8px 0 6px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #e5edff;
+}
+
+.diff-card p {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.7;
+  color: #cbd5f5;
+}
+
+/* ========================= */
+/* RESPONSIVE CODE (LAST) */
+/* ========================= */
+
+/* TABLET */
+@media (max-width: 900px) {
+  .diff-inner {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+
+  .diff-left {
+    position: relative;
+    top: 0;
+  }
+}
+
+/* MOBILE */
+@media (max-width: 600px) {
+  .diff-section {
+    padding: 60px 16px;
+  }
+
+  .diff-title {
+    font-size: 1.8rem;
+  }
+
+  .diff-card {
+    padding: 20px 18px;
+  }
+}

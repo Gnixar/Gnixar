@@ -1,0 +1,271 @@
+/* ---------------- BASE STYLES ---------------- */
+
+.mock-hero {
+  width: 100%;
+  padding: 60px 20px;
+  /* Added side padding for small screens */
+  box-sizing: border-box;
+}
+
+.mock-hero-main-container {
+  max-width: 1200px;
+  height: 550px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 24px;
+  overflow: hidden;
+  /* Ensures image doesn't bleed out of corners */
+  position: relative;
+  background:
+    linear-gradient(to right,
+      rgba(15, 23, 42, 0.9) 20%,
+      rgba(15, 23, 42, 0.9) 40%,
+      rgba(15, 23, 42, 0.742) 60%,
+      rgba(15, 23, 42, 0.6) 90%),
+    url("/headerimg.png");
+  background-size: cover;
+  background-position: center;
+  padding: 60px;
+  /* Balanced inner spacing */
+  box-sizing: border-box;
+}
+
+/* ---------------- LEFT CONTENT ---------------- */
+
+.mock-hero-content {
+  flex: 1;
+  max-width: 600px;
+  z-index: 2;
+}
+
+.-mock-hero-badge {
+  display: inline-block;
+  background-color: rgba(59, 92, 255, 0.2);
+  /* Semi-transparent blue */
+  color: #a5b4fc;
+  /* Lighter blue for dark bg */
+  padding: 8px 16px;
+  border-radius: 100px;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 24px;
+  border: 1px solid rgba(59, 92, 255, 0.3);
+}
+
+.mock-hero-content h1 {
+  font-size: 48px;
+  line-height: 1.1;
+  color: #ffffff;
+  /* Changed to White */
+  margin-bottom: 20px;
+  font-weight: 800;
+}
+
+.mock-hero-content h1 span {
+  color: #60a5fa;
+  /* Brighter blue for contrast */
+}
+
+.mock-hero-content p {
+  font-size: 18px;
+  line-height: 1.6;
+  color: #cbd5e1;
+  /* Light gray for readability */
+  margin-bottom: 32px;
+}
+
+/* ---------------- BUTTONS ---------------- */
+
+.mock-hero-actions {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 48px;
+}
+
+.mock-btn-primary {
+  background-color: #3b5cff;
+  color: #ffffff;
+  border: none;
+  padding: 16px 28px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: transform 0.2s, background 0.2s;
+}
+
+.mock-btn-primary:hover {
+  background-color: #2563eb;
+  transform: translateY(-2px);
+}
+
+.mock-btn-secondary {
+  background-color: rgba(255, 255, 255, 0.05);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 16px 28px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 12px;
+  cursor: pointer;
+  backdrop-filter: blur(10px);
+}
+
+.mock-btn-secondary:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* ---------------- STATS ---------------- */
+
+.mock-hero-stats {
+  display: flex;
+  gap: 40px;
+}
+
+.mock-hero-stats h3 {
+  font-size: 28px;
+  color: #ffffff;
+  margin: 0;
+}
+
+.mock-hero-stats span {
+  font-size: 14px;
+  color: #94a3b8;
+}
+
+/* ===== INTERVIEW FORM CONTAINER ===== */
+.mock-hero-form {
+  max-width: 350px;
+  width: 100%;
+  padding: 30px;
+  margin-left: auto;
+  /* FLOAT RIGHT */
+  background: rgba(15, 23, 42, 0.55);
+  border-radius: 18px;
+  border: 1px solid rgba(148, 163, 184, 0.35);
+  backdrop-filter: blur(12px);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Decorative glowing gradient corner */
+.mock-hero-form::before {
+  content: "";
+  position: absolute;
+  top: -60px;
+  right: -60px;
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(99, 102, 241, 0.5), transparent 70%);
+  filter: blur(28px);
+  pointer-events: none;
+  opacity: 0.45;
+}
+
+/* ===== FORM TITLE ===== */
+.mock-hero-form h2 {
+  text-align: center;
+  font-size: 1.45rem;
+  margin-bottom: 22px;
+  font-weight: 700;
+  background: linear-gradient(90deg, #fff, #dbeafe, #a5b4fc);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* ===== FORM LAYOUT ===== */
+.mock-hero-form form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* ===== INPUT FIELDS ===== */
+.mock-hero-form input {
+  padding: 11px 12px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(148, 163, 184, 0.35);
+  color: #fff;
+  font-size: 1rem;
+  transition: border-color .3s ease, box-shadow .3s ease;
+}
+
+.mock-hero-form input::placeholder {
+  color: #cbd5f5;
+}
+
+/* INPUT FOCUS GLOW */
+.mock-hero-form input:focus {
+  outline: none;
+  border-color: #6d28d9;
+  box-shadow: 0 0 12px rgba(99, 102, 241, 0.4);
+}
+
+/* ===== SUBMIT BUTTON ===== */
+.mock-hero-form button {
+  margin-top: 10px;
+  padding: 12px 0;
+  border: none;
+  border-radius: 10px;
+  font-weight: 600;
+  background: linear-gradient(90deg, #6366f1, #3b82f6);
+  color: #fff;
+  letter-spacing: .5px;
+  cursor: pointer;
+  transition: all .25s ease;
+  box-shadow:
+    0 0 0 2px rgba(148, 163, 184, 0.25),
+    0 12px 26px rgba(37, 99, 235, 0.5);
+}
+
+.mock-hero-form button:hover:not(:disabled) {
+  transform: translateY(-2px) scale(1.015);
+  box-shadow:
+    0 0 0 2px rgba(148, 163, 184, 0.45),
+    0 18px 38px rgba(37, 99, 235, 0.8);
+}
+
+.mock-hero-form button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* ---------------- RESPONSIVE ---------------- */
+
+@media (max-width: 1024px) {
+  .mock-hero-main-container {
+    padding: 40px;
+  }
+
+  .mock-hero-content h1 {
+    font-size: 36px;
+  }
+}
+
+@media (max-width: 850px) {
+  .mock-hero-main-container {
+    flex-direction: column;
+    text-align: center;
+    background: #0f172a;
+    /* Fallback for mobile */
+  }
+
+  .mock-hero-content {
+    max-width: 100%;
+    margin-bottom: 40px;
+  }
+
+  .mock-hero-actions,
+  .mock-hero-stats {
+    justify-content: center;
+  }
+
+  .mock-hero-from {
+    margin-left: 0;
+    width: 100%;
+  }
+}

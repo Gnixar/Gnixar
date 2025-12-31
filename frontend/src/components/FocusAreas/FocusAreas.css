@@ -1,0 +1,207 @@
+/* =====================================================
+   OUTER SECTION
+===================================================== */
+.focus-areas-section {
+  width: 100%;
+  padding: 40px 5vw;
+}
+
+/* =====================================================
+   INNER GLASS CONTAINER
+===================================================== */
+.focus-areas-section-main {
+  max-width: 1200px;
+  margin-left: auto;
+  padding: 42px 42px 60px;
+  border-radius: 26px;
+  color: #e5edff;
+
+  background-image:
+    linear-gradient(
+      to right,
+      rgba(2, 6, 23, 0.98) 30%,
+      rgba(2, 6, 23, 0.75) 55%,
+      rgba(2, 6, 23, 0.35) 80%,
+      rgba(2, 6, 23, 0) 100%
+    ),
+    url("/focusareabg2.png");
+
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: right;
+
+  border: 1px solid rgba(148, 163, 184, 0.35);
+}
+
+/* =====================================================
+   HEADINGS
+===================================================== */
+.focus-heading {
+  font-size: 2.4rem;
+  font-weight: 800;
+  margin-bottom: 12px;
+
+  background: linear-gradient(120deg, #f8fafc, #c7d2fe, #60a5fa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.focus-subheading {
+  font-size: 0.95rem;
+  color: rgba(203, 213, 225, 0.9);
+  margin-bottom: 44px;
+  max-width: 720px;
+}
+
+/* =====================================================
+   CARDS GRID (SMALLER CARDS)
+===================================================== */
+.focus-cards-container {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(220px, 1fr));
+  gap: 18px;
+}
+
+/* =====================================================
+   CARD DESIGN
+===================================================== */
+.focus-card {
+  background: radial-gradient(
+    circle at top left,
+    rgba(56, 189, 248, 0.16),
+    rgba(15, 23, 42, 0.96)
+  );
+
+  border-radius: 16px;
+  border: 1px solid rgba(148, 163, 184, 0.45);
+
+  box-shadow:
+    0 18px 36px rgba(15, 23, 42, 0.85),
+    inset 0 0 0 1px rgba(15, 23, 42, 0.9);
+
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+  transition: all 260ms ease;
+}
+
+.focus-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(96, 165, 250, 0.9);
+  box-shadow:
+    0 28px 52px rgba(15, 23, 42, 0.95),
+    inset 0 0 0 1px rgba(96, 165, 250, 0.8);
+}
+
+/* =====================================================
+   CARD HEADER
+===================================================== */
+.card-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.card-icon {
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  background: rgba(56, 189, 248, 0.18);
+  color: #93c5fd;
+}
+
+.card-title {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: #f8fafc;
+}
+
+/* =====================================================
+   DESCRIPTION
+===================================================== */
+.card-description {
+  font-size: 0.85rem;
+  color: rgba(226, 232, 240, 0.9);
+  margin-bottom: 18px;
+}
+
+/* =====================================================
+   METRICS
+===================================================== */
+.card-metrics {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 22px;
+}
+
+.metric-item {
+  display: flex;
+  justify-content: space-between;
+}
+
+.metric-value {
+  font-size: 1rem;
+  font-weight: 800;
+  background: linear-gradient(120deg, #60a5fa, #a5b4fc);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.metric-label {
+  font-size: 0.7rem;
+  color: #94a3b8;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+}
+
+/* =====================================================
+   CTA BUTTON
+===================================================== */
+.card-cta {
+  margin-top: auto;
+  border: none;
+  border-radius: 10px;
+  padding: 10px;
+
+  background: linear-gradient(90deg, #6366f1, #3b82f6);
+  color: #fff;
+
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+
+  transition: all 240ms ease;
+}
+
+.card-cta:hover {
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 12px 26px rgba(37, 99, 235, 0.6);
+}
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+@media (max-width: 1050px) {
+  .focus-cards-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 750px) {
+  .focus-areas-section {
+    padding: 70px 20px 100px;
+  }
+
+  .focus-cards-container {
+    grid-template-columns: 1fr;
+  }
+
+  .focus-card {
+    max-width: 400px;
+    margin: 0 auto;
+  }
+}

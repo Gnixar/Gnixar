@@ -1,0 +1,208 @@
+/* ============================= */
+/* SECTION */
+/* ============================= */
+
+.admission-section {
+  padding: clamp(2.5rem, 5vw, 4.25rem) clamp(1rem, 4vw, 1.5rem);
+  position: relative;
+  z-index: 1;
+}
+
+.admission-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* ============================= */
+/* HEADER */
+/* ============================= */
+
+.admission-header {
+  text-align: left;
+  max-width: 640px;
+  margin: 0 auto 2rem;
+}
+
+.admission-kicker {
+  font-size: 0.75rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(191, 219, 254, 0.9);
+  margin-bottom: 0.35rem;
+}
+
+.admission-title {
+  margin-bottom: 0.6rem;
+  font-size: clamp(1.5rem, 4vw, 2.1rem);
+  font-weight: 800;
+  line-height: 1.25;
+  background: linear-gradient(120deg, #e5edff, #bfdbfe, #60a5fa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.admission-intro {
+  font-size: clamp(0.9rem, 2.5vw, 0.95rem);
+  line-height: 1.7;
+  color: rgba(209, 213, 219, 0.9);
+}
+
+/* ============================= */
+/* FLOW */
+/* ============================= */
+
+.admission-flow {
+  margin-top: 1.5rem;
+}
+
+/* ============================= */
+/* STEP (MOBILE FIRST) */
+/* ============================= */
+
+.admission-step {
+  display: flex;
+  justify-content: flex-start;
+  margin: 1.5rem 0;
+}
+
+.admission-step-left,
+.admission-step-right {
+  justify-content: flex-start;
+}
+
+/* hide arrows on mobile */
+.admission-step-arrow {
+  display: none;
+}
+
+/* ============================= */
+/* CARD */
+/* ============================= */
+
+.admission-step-card {
+  width: 100%;
+  max-width: 100%;
+  padding: 1rem 1.25rem 1.1rem;
+  border-radius: 1.1rem;
+  background: radial-gradient(
+    circle at top left,
+    rgba(59, 130, 246, 0.24),
+    rgba(15, 23, 42, 0.98)
+  );
+  border: 1px solid rgba(148, 163, 184, 0.6);
+  box-shadow:
+    0 18px 36px rgba(15, 23, 42, 0.9),
+    0 0 0 1px rgba(15, 23, 42, 0.98);
+}
+
+/* ============================= */
+/* STEP PILL */
+/* ============================= */
+
+.admission-step-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.25rem 0.6rem;
+  border-radius: 999px;
+  background: rgba(15, 23, 42, 0.9);
+  border: 1px solid rgba(129, 140, 248, 0.7);
+  margin-bottom: 0.55rem;
+}
+
+.admission-step-index {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(191, 219, 254, 0.9);
+}
+
+.admission-step-label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #e5edff;
+}
+
+/* ============================= */
+/* TEXT */
+/* ============================= */
+
+.admission-step-title {
+  margin-bottom: 0.25rem;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #f9fbff;
+}
+
+.admission-step-body {
+  font-size: 0.9rem;
+  line-height: 1.7;
+  color: rgba(209, 213, 219, 0.92);
+}
+
+/* ============================= */
+/* TABLET (≥ 640px) */
+/* ============================= */
+
+@media (min-width: 640px) {
+  .admission-header {
+    text-align: center;
+  }
+
+  .admission-step-card {
+    max-width: 520px;
+  }
+}
+
+/* ============================= */
+/* DESKTOP (≥ 768px) */
+/* ============================= */
+
+@media (min-width: 768px) {
+  .admission-step {
+    margin: 2rem 0;
+  }
+
+  .admission-step-left {
+    justify-content: flex-start;
+  }
+
+  .admission-step-right {
+    justify-content: flex-end;
+  }
+
+  .admission-step-card {
+    max-width: 380px;
+  }
+
+  .admission-step-arrow {
+    display: block;
+    width: 140px;
+    height: 80px;
+    flex-shrink: 0;
+  }
+
+  .admission-step-left .admission-step-arrow {
+    margin-right: 0.75rem;
+  }
+
+  .admission-step-right .admission-step-arrow {
+    order: 2;
+    margin-left: 0.75rem;
+  }
+}
+
+/* ============================= */
+/* LARGE DESKTOP (≥ 1024px) */
+/* ============================= */
+
+@media (min-width: 1024px) {
+  .admission-step-card {
+    max-width: 420px;
+  }
+
+  .admission-title {
+    font-size: 2.2rem;
+  }
+}

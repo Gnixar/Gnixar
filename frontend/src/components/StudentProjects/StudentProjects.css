@@ -1,0 +1,201 @@
+/* ===============================
+   SECTION
+================================ */
+.crio-projects {
+  padding: 40px 0;
+}
+
+/* ===============================
+   WRAPPER
+================================ */
+.crio-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+/* ===============================
+   HEADER
+================================ */
+.crio-header {
+
+  max-width: 600px;
+  /* slightly wider for centering */
+  margin: 0 auto 40px;
+  /* auto horizontal centering + bottom spacing */
+  text-align: center;
+  /* center all text */
+}
+
+.crio-header h2 {
+  font-size: 36px;
+  /* slightly bigger */
+  font-weight: 800;
+  margin: 0 0 16px 0;
+  /* Gradient text like learning section */
+  background: linear-gradient(120deg, #e5edff, #6297d8);
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.crio-header p {
+  font-size: 16px;
+  color: rgba(226, 232, 240, 0.9);
+  margin: 0 auto;
+  max-width: 480px;
+  line-height: 1.6;
+}
+
+
+/* ===============================
+   CAROUSEL WRAPPER
+================================ */
+.crio-carousel {
+  position: relative;
+}
+
+/* ===============================
+   ARROWS
+================================ */
+.crio-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid #dcdfe5;
+  background: #ffffff;
+  font-size: 24px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  transition: all 0.25s ease;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.12);
+}
+
+.crio-arrow:hover {
+  background: #f3f5f9;
+}
+
+.crio-arrow.left {
+  left: -18px;
+}
+
+.crio-arrow.right {
+  right: -18px;
+}
+
+/* ===============================
+   SCROLL GRID
+================================ */
+.crio-scroll {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  padding: 10px 0;
+  scroll-snap-type: x mandatory;
+}
+
+.crio-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+/* ===============================
+   CARD (LEARNING STYLE)
+================================ */
+.crio-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  min-width: 300px;
+
+  /* Gradient radial background */
+  background: radial-gradient(circle at top left,
+      rgba(56, 189, 248, 0.18),
+      rgba(15, 23, 42, 0.96));
+
+  border-radius: 16px;
+  border: 1px solid rgba(148, 163, 184, 0.45);
+  padding: 28px 24px;
+  scroll-snap-align: start;
+  transition: all 250ms ease;
+}
+
+.crio-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(96, 165, 250, 0.9);
+}
+
+/* ===============================
+   ICON
+================================ */
+.crio-card-icon {
+  width: 260px;
+  height: 260px;
+  border-radius: 50%;
+  background: rgba(56, 189, 248, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+  color: #93c5fd;
+  transition: transform 250ms ease;
+}
+
+.crio-card:hover .crio-card-icon {
+  transform: scale(1);
+}
+
+.crio-card-icon img {
+  width: 240px;
+  height: 240px;
+  object-fit: contain;
+}
+
+/* ===============================
+   TITLE
+================================ */
+.crio-card-title {
+  font-size: 17px;
+  font-weight: 700;
+  background: linear-gradient(120deg, #60a5fa, #a5b4fc);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 8px;
+}
+
+/* ===============================
+   DESCRIPTION
+================================ */
+.crio-card-desc {
+  font-size: 14px;
+  color: rgba(226, 232, 240, 0.9);
+  line-height: 1.6;
+  margin-bottom: 12px;
+}
+
+/* ===============================
+   TECH STACK
+================================ */
+.crio-card-stack {
+  font-size: 13px;
+  font-weight: 600;
+  color: #4f6bed;
+  background: #eef2ff;
+  display: inline-block;
+  padding: 6px 10px;
+  border-radius: 8px;
+}
+
+/* ===============================
+   MOBILE
+================================ */
+@media (max-width: 768px) {
+  .crio-arrow {
+    display: none;
+  }
+}

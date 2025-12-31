@@ -1,0 +1,145 @@
+/* ---------------- BASE STYLES (>1050px) ---------------- */
+
+#feedback-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  color: #e5edff;
+}
+
+/* Header */
+.feedback-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.feedback-header h2 {
+  font-size: 2.3rem;
+  font-weight: 800;
+  background: linear-gradient(120deg, #e5edff, #bfdbfe, #60a5fa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.feedback-header p {
+  font-size: 0.95rem;
+  color: rgba(203, 213, 225, 0.9);
+  margin-top: 8px;
+}
+
+/* Grid */
+.feedback-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  width: 100%;
+}
+
+/* Feedback Card */
+.feedback-card {
+  background: radial-gradient(
+    circle at top left,
+    rgba(56, 189, 248, 0.18),
+    rgba(15, 23, 42, 0.96)
+  );
+  border-radius: 16px;
+  border: 1px solid rgba(148, 163, 184, 0.5);
+  box-shadow:
+    0 18px 36px rgba(15, 23, 42, 0.9),
+    0 0 0 1px rgba(15, 23, 42, 0.95);
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  transition: all 250ms ease;
+}
+
+.feedback-card:hover {
+  border-color: rgba(96, 165, 250, 0.9);
+  box-shadow:
+    0 24px 48px rgba(15, 23, 42, 0.98),
+    0 0 0 1px rgba(96, 165, 250, 0.8);
+}
+
+/* Card Header */
+.feedback-card-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.feedback-avatar {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid rgba(147, 197, 253, 0.6);
+}
+
+.feedback-user h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #e5edff;
+  margin: 0;
+}
+
+.feedback-user span {
+  font-size: 0.85rem;
+  color: rgba(203, 213, 225, 0.85);
+}
+
+/* Feedback Text */
+.feedback-text {
+  font-size: 0.92rem;
+  line-height: 1.6;
+  color: rgba(226, 232, 240, 0.92);
+  margin: 12px 0 16px;
+}
+
+/* Rating */
+.feedback-rating {
+  margin-top: auto;
+  font-size: 1.1rem;
+  color: #fbbf24;
+  letter-spacing: 1px;
+}
+
+/* ---------------- <=1050px ---------------- */
+
+@media (max-width: 1050px) {
+  #feedback-page {
+    padding: 0 24px;
+  }
+
+  .feedback-header h2 {
+    font-size: 2.1rem;
+  }
+
+  .feedback-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+}
+
+/* ---------------- <=750px ---------------- */
+
+@media (max-width: 750px) {
+  #feedback-page {
+    padding: 0 30px;
+  }
+
+  .feedback-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .feedback-header h2 {
+    font-size: 1.9rem;
+  }
+
+  .feedback-header p {
+    font-size: 0.88rem;
+  }
+}

@@ -1,0 +1,168 @@
+/* ===============================
+   SECTION
+================================ */
+.gnixar-curriculum {
+  padding: 96px 20px;
+}
+
+/* ===============================
+   INNER WRAPPER
+================================ */
+.gnixar-curriculum-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 80px 60px;
+  border-radius: 26px;
+
+  background-image:
+   linear-gradient(
+      to right,
+      rgba(2, 6, 23, 0.95) 35%,
+      rgba(2, 6, 23, 0.7) 55%,
+      rgba(2, 6, 23, 0.25) 65%,
+      rgba(2, 6, 23, 0) 100%
+    ),
+    url("/bg3.png");
+
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  gap: 56px;
+  align-items: center;
+}
+
+/* ===============================
+   LEFT CONTENT
+================================ */
+.gnixar-kicker {
+  font-size: 0.75rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: #93c5fd;
+}
+
+.gnixar-title {
+  margin: 14px 0 24px;
+  font-size: 2.4rem;
+  font-weight: 800;
+  line-height: 1.2;
+  background: linear-gradient(120deg, #e5edff, #bfdbfe);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gnixar-title span {
+  background: linear-gradient(120deg, #38bdf8, #6366f1);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* ===============================
+   ACCORDION
+================================ */
+.gnixar-accordion {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.gnixar-accordion-item {
+  border-radius: 16px;
+  border: 1px solid rgba(148, 163, 184, 0.45);
+  background: rgba(15, 23, 42, 0.96);
+  overflow: hidden;
+  transition: border-color 0.2s ease;
+}
+
+.gnixar-accordion-item.active {
+  border-color: rgba(129, 140, 248, 0.9);
+}
+
+.gnixar-accordion-header {
+  width: 100%;
+  padding: 16px 18px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+
+  text-align: left;
+}
+
+.gnixar-module {
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #a5b4fc;
+}
+
+.gnixar-accordion-header h3 {
+  margin: 4px 0 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #e5edff;
+}
+
+.gnixar-toggle {
+  font-size: 1.5rem;
+  color: #c7d2fe;
+}
+
+.gnixar-accordion-body {
+  padding: 0 18px 16px;
+  font-size: 0.9rem;
+  line-height: 1.7;
+  color: #cbd5f5;
+}
+
+/* ===============================
+   RIGHT IMAGE
+================================ */
+.gnixar-curriculum-right {
+  position: relative;
+}
+
+.gnixar-curriculum-right img {
+  width: 100%;
+  border-radius: 20px;
+  box-shadow: 0 30px 60px rgba(15, 23, 42, 0.95);
+  border: 1px solid rgba(148, 163, 184, 0.3);
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+/* TABLET */
+@media (max-width: 900px) {
+  .gnixar-curriculum-inner {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .gnixar-curriculum-right {
+    order: -1;
+  }
+}
+
+/* MOBILE */
+@media (max-width: 600px) {
+  .gnixar-curriculum {
+    padding: 72px 16px;
+  }
+
+  .gnixar-title {
+    font-size: 1.8rem;
+  }
+
+  .gnixar-accordion-header {
+    padding: 14px 16px;
+  }
+}

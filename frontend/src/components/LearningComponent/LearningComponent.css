@@ -1,0 +1,176 @@
+/* =====================================================
+   MAIN SECTION
+===================================================== */
+.learning-section-main {
+    width: 100%;
+    padding: 40px 0;
+}
+
+/* =====================================================
+   CONTAINER (MATCHES OUTCOMES COMPONENT)
+===================================================== */
+.learning-section-contrainer {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 80px 60px;
+    border-radius: 26px;
+    color: #ffffff;
+
+    background-image:
+        linear-gradient(to left,
+            rgba(2, 6, 23, 0.616) 20%,
+            rgba(2, 6, 23, 0.587) 40%,
+            rgba(2, 6, 23, 0.393) 65%,
+            rgba(2, 6, 23, 0) 100%),
+        url("/bg4.png");
+
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+/* =====================================================
+   MAIN HEADING (GRADIENT TEXT)
+===================================================== */
+.learning-main-heading>h2{
+    font-size: 36px;
+    font-weight: 800;
+    margin-bottom: 60px;
+    max-width: 680px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    background: linear-gradient(120deg, #e5edff, #6297d8);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* =====================================================
+   SUB SECTIONS
+===================================================== */
+.learning-sub-section >p{
+    margin-bottom: 60px;
+    text-align: center;
+}
+
+.section-title {
+    font-size: 26px;
+    font-weight: 700;
+    color: #e5edff;
+    margin-bottom: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.section-subtitle {
+    font-size: 15px;
+    color: rgba(226, 232, 240, 0.9);
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+/* =====================================================
+   FOUNDERS GRID
+===================================================== */
+.founders-points-grid {
+    margin-top: 40px;
+    display: grid;
+    justify-items: center;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 24px;
+}
+
+/* =====================================================
+   FOUNDER CARD (MATCH STATS CARD STYLE)
+===================================================== */
+.founder-point {
+    background: radial-gradient(circle at top left,
+            rgba(56, 189, 248, 0.18),
+            rgba(15, 23, 42, 0.96));
+
+    border-radius: 16px;
+    border: 1px solid rgba(148, 163, 184, 0.45);
+    text-align: center;
+    align-items: center;
+    box-shadow:
+        0 18px 36px rgba(15, 23, 42, 0.9),
+        0 0 0 1px rgba(15, 23, 42, 0.95);
+
+    padding: 28px 24px;
+    transition: all 250ms ease;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.founder-point:hover {
+    transform: translateY(-6px);
+    border-color: rgba(96, 165, 250, 0.9);
+    box-shadow:
+        0 24px 48px rgba(15, 23, 42, 0.98),
+        0 0 0 1px rgba(96, 165, 250, 0.8);
+}
+
+/* =====================================================
+   ICON
+===================================================== */
+.point-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: rgba(56, 189, 248, 0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    color: #93c5fd;
+    margin-bottom: 16px;
+    transition: transform 250ms ease;
+}
+
+.founder-point:hover .point-icon {
+    transform: scale(1.25);
+}
+
+/* =====================================================
+   TEXT
+===================================================== */
+.point-title {
+    font-size: 17px;
+    font-weight: 700;
+
+    background: linear-gradient(120deg, #60a5fa, #a5b4fc);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-align: center;
+    margin-bottom: 8px;
+}
+
+.point-detail {
+    font-size: 14px;
+    color: rgba(226, 232, 240, 0.9);
+    line-height: 1.6;
+    text-align: center;
+}
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+@media (max-width: 768px) {
+    .learning-section-contrainer {
+        padding: 60px 24px;
+    }
+
+    .learning-main-heading {
+        font-size: clamp(26px, 6vw, 32px);
+    }
+
+    .section-title {
+        font-size: 22px;
+    }
+}

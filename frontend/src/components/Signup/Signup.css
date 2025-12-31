@@ -1,0 +1,123 @@
+:root {
+  --primary: #4f46e5;
+  --primary-dark: #3730a3;
+  --accent: #f97316;
+  --bg: #f5f6fa;
+  --card-bg: #ffffff;
+  --border: #e5e7eb;
+  --text: #111827;
+  --text-muted: #6b7280;
+  --radius: 12px;
+  --shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+}
+
+/* Page wrapper */
+.container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+ 
+}
+
+/* Card */
+.container form {
+  background: var(--card-bg);
+  width: 100%;
+  max-width: 420px;
+  padding: 30px 26px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.container h1 {
+  text-align: center;
+  margin-bottom: 10px;
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--primary-dark);
+}
+
+/* Label + input group */
+.container form div {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.container label {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-muted);
+}
+
+/* Inputs */
+.container input {
+  padding: 12px 14px;
+  font-size: 15px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: #fafafa;
+  outline: none;
+  color: var(--text);
+  transition: 0.2s ease;
+}
+
+.container input:focus {
+  border-color: var(--primary);
+  background: #fff;
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.15);
+}
+
+/* Button */
+.container button {
+  padding: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  border-radius: var(--radius);
+  cursor: pointer;
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  color: #fff;
+  transition: 0.2s ease;
+  margin-top: 10px;
+}
+
+.container button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(79, 70, 229, 0.25);
+}
+
+/* Login Link */
+.container span {
+  text-align: center;
+  font-size: 14px;
+  color: var(--text-muted);
+}
+
+.container span a {
+  margin-left: 6px;
+  font-weight: 600;
+  color: var(--primary);
+  text-decoration: none;
+}
+
+.container span a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .container form {
+    padding: 22px 18px;
+  }
+
+  .container h1 {
+    font-size: 22px;
+  }
+}
