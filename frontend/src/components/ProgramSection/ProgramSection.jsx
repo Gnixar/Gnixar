@@ -6,8 +6,8 @@ import {
 import "./ProgramSection.css";
 
 const PROGRAMS_DATA = [
-  { category: "Data Science", Icon: Layers, details: [], link: "/programs/data-science", },
-  { category: "AI & ML", Icon: Cpu, details: [], link: "/programs/aiml", },
+  { category: "Data Science", Icon: Layers, details: [], link: "/data-science", },
+  { category: "AI & ML", Icon: Cpu, details: [], link: "/aiml", },
   { category: "Web Development", Icon: Code, details: [], link: "/commingsoon", }, 
   { category: "Product Management", Icon: Users, details: [], link: "/commingsoon",},
   { category: "Cyber Security", Icon: Shield, details: [], link: "/commingsoon" },

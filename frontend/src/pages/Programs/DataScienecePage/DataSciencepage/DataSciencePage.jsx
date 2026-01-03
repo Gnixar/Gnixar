@@ -65,7 +65,7 @@ const DataSciencePage = () => {
                 <div className="program-overlay">
                   <button
                     className="register-btn"
-                    onClick={() => navigate("/programs/data-science/foundation")}  
+                    onClick={() => navigate("/data-science/foundation")}  
                   >
                     Register Now
                   </button>

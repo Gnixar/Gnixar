@@ -11,7 +11,7 @@ const PROGRAMS = [
     startDate: "15 Jan 2026",
     duration: "3 Months",
     mode: "Online",
-    route: "/programs/aiml/advanced-aiml",
+    route: "/aiml/advanced-aiml",
   },
   {
     id: 2,

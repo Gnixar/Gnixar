@@ -29,12 +29,12 @@ function App() {
         {/* Programs */}
 
         {/* Data Science */}
-        <Route path="/programs/data-science" element={<DataSciencePage />} />
-        <Route path="/programs/data-science/foundation" element={<DataScienceFoundation />} />
+        <Route path="/data-science" element={<DataSciencePage />} />
+        <Route path="data-science/foundation" element={<DataScienceFoundation />} />
 
         {/* AIML */}
-        <Route path="/programs/aiml" element={<AIMLHomePage/>} />
-        <Route path="/programs/aiml/advanced-aiml" element={<AdvancedAiml/>} />
+        <Route path="/aiml" element={<AIMLHomePage/>} />
+        <Route path="/aiml/advanced-aiml" element={<AdvancedAiml/>} />
 
 
       </Routes>
