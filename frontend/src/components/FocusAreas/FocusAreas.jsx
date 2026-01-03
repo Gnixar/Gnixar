@@ -44,35 +44,37 @@ const focusAreas = [
 const FocusAreas = () => {
   return (
     <section className="focus-areas-section">
-      <div className="focus-areas-section-main">
-        <h2 className="focus-heading">Specialized Focus Areas</h2>
-        <p className="focus-subheading">
-          Experience-driven learning designed to help you build, launch, and
-          scale real-world products.
-        </p>
+      <div className="focus-areas-wrapper">
+        <div className="focus-areas-section-main">
+          <h2 className="focus-heading">Specialized Focus Areas</h2>
+          <p className="focus-subheading">
+            Experience-driven learning designed to help you build, launch, and
+            scale real-world products.
+          </p>
 
-        <div className="focus-cards-container">
-          {focusAreas.map((area) => (
-            <div className="focus-card" key={area.id}>
-              <div className="card-header">
-                <area.IconComponent className="card-icon" />
-                <h3 className="card-title">{area.title}</h3>
+          <div className="focus-cards-container">
+            {focusAreas.map((area) => (
+              <div className="focus-card" key={area.id}>
+                <div className="card-header">
+                  <area.IconComponent className="card-icon" />
+                  <h3 className="card-title">{area.title}</h3>
+                </div>
+
+                <p className="card-description">{area.description}</p>
+
+                <div className="card-metrics">
+                  {area.metrics.map((metric, idx) => (
+                    <div className="metric-item" key={idx}>
+                      <span className="metric-value">{metric.value}</span>
+                      <span className="metric-label">{metric.label}</span>
+                    </div>
+                  ))}
+                </div>
+
+                <button className="card-cta">Know More</button>
               </div>
-
-              <p className="card-description">{area.description}</p>
-
-              <div className="card-metrics">
-                {area.metrics.map((metric, idx) => (
-                  <div className="metric-item" key={idx}>
-                    <span className="metric-value">{metric.value}</span>
-                    <span className="metric-label">{metric.label}</span>
-                  </div>
-                ))}
-              </div>
-
-              <button className="card-cta">Know More</button>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </section>

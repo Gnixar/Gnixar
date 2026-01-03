@@ -1,4 +1,4 @@
-import "./trustStrip.css";
+import "./TrustStrip.css";
 
 export default function TrustStrip() {
   return (

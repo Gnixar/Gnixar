@@ -7,22 +7,23 @@ const SuccessStories = () => {
   const { students } = useContext(StudentsContext);
   const [openForm, setOpenForm] = useState(false);
 
+  // Lock body scroll when form is open
   useEffect(() => {
     document.body.style.overflow = openForm ? "hidden" : "auto";
   }, [openForm]);
 
   return (
     <div className="success-section">
-      {openForm && (
-        <div className="form-overlay">
-          <Forms
-            onCancel={() => setOpenForm(false)}
-            onSuccess={() => setOpenForm(false)}
-          />
-        </div>
-      )}
+      <div className="success-section-main">
+        {openForm && (
+          <div className="form-overlay">
+            <Forms
+              onCancel={() => setOpenForm(false)}
+              onSuccess={() => setOpenForm(false)}
+            />
+          </div>
+        )}
 
-      <div className="success-section-bg">
         <div className="success-section-heading">
           <h2>Our Students Success Stories</h2>
           <p className="subtitle">
@@ -31,7 +32,7 @@ const SuccessStories = () => {
         </div>
 
         <div className="stories-container">
-          {/* LEFT SIDE */}
+          {/* LEFT */}
           <div className="stories-container-1">
             <div className="apply-content">
               <h3>Start Your Success Journey</h3>
@@ -39,7 +40,6 @@ const SuccessStories = () => {
                 Join hundreds of learners who transformed their careers with
                 real-world skills and guaranteed outcomes.
               </p>
-
               <button
                 className="apply-btn"
                 onClick={() => setOpenForm(true)}
@@ -49,7 +49,7 @@ const SuccessStories = () => {
             </div>
           </div>
 
-          {/* RIGHT SIDE */}
+          {/* RIGHT */}
           <div className="stories-container-2">
             <input type="radio" name="slider" id="slide1" defaultChecked />
             <input type="radio" name="slider" id="slide2" />

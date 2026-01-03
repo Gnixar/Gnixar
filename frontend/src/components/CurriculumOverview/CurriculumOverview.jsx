@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "./curriculumOverview.css";
+import "./CurriculumOverview.css";
 
 const curriculumData = [
   {

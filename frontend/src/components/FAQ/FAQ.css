@@ -10,8 +10,8 @@
   font-family: 'Titan One', cursive;
   text-align: center;
   font-size: 2.5rem;
-  color: #93c5fd; /* neon-ish blue */
-  margin-bottom: 0.5rem;
+  color: white; /* neon-ish blue */
+  margin-bottom: 60px
 }
 
 .faq-subtitle {
