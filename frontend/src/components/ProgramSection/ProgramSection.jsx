@@ -56,7 +56,6 @@ const ProgramSection = () => {
                 </ul>
               )}
 
-              {/* ✅ FIXED ROUTING */}
               <Link to={program.link} className="view-all-link">
                 View All Courses
               </Link>
