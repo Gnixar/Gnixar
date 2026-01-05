@@ -47,7 +47,7 @@ const Outcomes = () => {
         </div>
 
         {/* PARTNERS */}
-        <div className="outcome-logo">
+        {/* <div className="outcome-logo">
           <h3 className="partner-heading">
             The Startup Ecosystem Backs Gnixar Talent
           </h3>
@@ -59,7 +59,7 @@ const Outcomes = () => {
               </div>
             ))}
           </div>
-        </div>
+        </div> */}
       </div>
     </section>
   );
