@@ -6,6 +6,7 @@ import { handleSuccess, handleError } from "../../utlis.js";
 import "react-toastify/dist/ReactToastify.css";
 import "./Forms.css";
 
+/* -------------------- VALIDATION -------------------- */
 const SignupSchema = Yup.object().shape({
   name: Yup.string().min(2).max(50).required("Name is required"),
   email: Yup.string().email("Invalid email").required("Email is required"),
@@ -16,6 +17,7 @@ const SignupSchema = Yup.object().shape({
   course: Yup.string().required("Please select a course"),
 });
 
+/* -------------------- COMPONENT -------------------- */
 const Forms = ({ onCancel, onSuccess }) => {
   const initialValues = {
     name: "",
@@ -27,9 +29,11 @@ const Forms = ({ onCancel, onSuccess }) => {
 
   const handleSubmit = async (values, { resetForm, setSubmitting }) => {
     try {
-      const response = await fetch("https://gnixar-bacend.onrender.com/form/submit", {
+      const response = await fetch("/api/form/submit", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+        },
         body: JSON.stringify(values),
       });
 
@@ -42,7 +46,7 @@ const Forms = ({ onCancel, onSuccess }) => {
       } else {
         handleError(data.message || "Submission failed");
       }
-    } catch {
+    } catch (error) {
       handleError("Server error. Please try again later.");
     } finally {
       setSubmitting(false);
@@ -59,18 +63,34 @@ const Forms = ({ onCancel, onSuccess }) => {
         validationSchema={SignupSchema}
         onSubmit={handleSubmit}
       >
-        {({ errors, touched, isSubmitting }) => (
+        {({ isSubmitting }) => (
           <Form className="unique-form">
-            <Field name="name" placeholder="Full Name" className="unique-input" />
+            <Field
+              name="name"
+              placeholder="Full Name"
+              className="unique-input"
+            />
             <ErrorMessage name="name" component="div" className="error-msg" />
 
-            <Field name="email" placeholder="Email" className="unique-input" />
+            <Field
+              name="email"
+              placeholder="Email"
+              className="unique-input"
+            />
             <ErrorMessage name="email" component="div" className="error-msg" />
 
-            <Field name="phone" placeholder="Phone" className="unique-input" />
+            <Field
+              name="phone"
+              placeholder="Phone"
+              className="unique-input"
+            />
             <ErrorMessage name="phone" component="div" className="error-msg" />
 
-            <Field name="degree" placeholder="Degree" className="unique-input" />
+            <Field
+              name="degree"
+              placeholder="Degree"
+              className="unique-input"
+            />
             <ErrorMessage name="degree" component="div" className="error-msg" />
 
             <Field as="select" name="course" className="unique-input">
@@ -82,10 +102,19 @@ const Forms = ({ onCancel, onSuccess }) => {
             <ErrorMessage name="course" component="div" className="error-msg" />
 
             <div className="form-actions">
-              <button type="button" className="form-cancel-btn" onClick={onCancel}>
+              <button
+                type="button"
+                className="form-cancel-btn"
+                onClick={onCancel}
+              >
                 Cancel
               </button>
-              <button type="submit" className="unique-submit-btn" disabled={isSubmitting}>
+
+              <button
+                type="submit"
+                className="unique-submit-btn"
+                disabled={isSubmitting}
+              >
                 {isSubmitting ? "Submitting..." : "Submit"}
               </button>
             </div>

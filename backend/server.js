@@ -36,10 +36,12 @@ app.get("/", (req, res) => {
     message: "Backend Running Successfully 🚀",
   });
 });
-app.use("/auth", AuthRouter)
-app.use("/form", FormRouter);
-app.use("/brochure", BrochureRouter);
+
+app.use("/api/auth", AuthRouter);
+app.use("/api/form", FormRouter);
+app.use("/api/brochure", BrochureRouter);
 app.use("/api/interview", InterviewRouter);
+
 
 
 /* -------------------- 404 HANDLER -------------------- */

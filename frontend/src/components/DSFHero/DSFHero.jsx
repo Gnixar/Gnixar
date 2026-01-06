@@ -75,7 +75,7 @@ const DSFHero = () => {
                 };
 
                 try {
-                  const res = await fetch("https://gnixar-bacend.onrender.com/brochure/submit", {
+                  const res = await fetch("/api/brochure/submit", {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify(sendData),

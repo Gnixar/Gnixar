@@ -27,7 +27,7 @@ const Signup = ({ switchToLogin }) => {
     }
 
     try {
-      const response = await fetch("https://gnixar-bacend.onrender.com/auth/signup", {
+      const response = await fetch("/api/auth/signup", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data),
