@@ -8,7 +8,7 @@ import { validateInterviewForm } from "../middleware/InterviewValidation.js";
 const router = express.Router();
 
 // Submit interview form
-router.post("/", validateInterviewForm, createInterview);
+router.post("/mock", validateInterviewForm, createInterview);
 
 // // Get all interview submissions (admin use)
 // router.get("/", getAllInterviews);

@@ -27,7 +27,7 @@ const MockInterviewHeader = () => {
     try {
       setLoading(true);
 
-      const response = await fetch("/api/interview", {
+      const response = await fetch("/api/interview/mock", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
