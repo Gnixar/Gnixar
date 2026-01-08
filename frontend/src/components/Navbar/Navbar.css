@@ -1,75 +1,52 @@
-/* ===============================
-   ROOT VARIABLES
-================================ */
 :root {
-  --bg-glass: rgba(255, 255, 255, 0.8);
-  --border-glass: rgba(203, 213, 225, 0.5);
+  --bg-glass: rgba(255, 255, 255, 0.9);
   --accent: #6366f1;
-  --accent-soft: rgba(99, 102, 241, 0.15);
   --text-main: #1f2937;
-  --text-muted: #4b5563;
-  --bg-light: #f9fafb;
+  --border: rgba(203, 213, 225, 0.5);
 }
 
-/* ===============================
-   NAVBAR WRAPPER
-================================ */
+/* ================= NAVBAR ================= */
 .navbar {
   position: sticky;
   top: 0;
   z-index: 1000;
-  backdrop-filter: blur(14px);
-
   background: var(--bg-glass);
-  border-bottom: 1px solid var(--border-glass);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border);
 }
 
 .navbar-container {
-  max-width: 1280px;
+  max-width: 1200px;
   margin: auto;
-  padding: 0 24px;
+  padding: 0 20px;
   height: 72px;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-/* ===============================
-   BRAND
-================================ */
 .navbar-brand img {
   height: 40px;
 }
 
-/* ===============================
-   NAV LINKS (DESKTOP)
-================================ */
-.navbar-links {
+/* ================= DESKTOP NAV ================= */
+.desktop-nav {
   display: flex;
   align-items: center;
-  gap: 28px;
+  gap: 30px;
 }
 
 .nav-item {
-  color: var(--text-main);
   font-size: 15px;
-  text-decoration: none;
+  font-weight: 500;
   cursor: pointer;
+  color: var(--text-main);
+  text-decoration: none;
   position: relative;
-  transition: color 0.2s ease;
 }
 
 .nav-item:hover {
-  color: var(--text-muted);
-}
-
-/* ===============================
-   DROPDOWN (DESKTOP)
-================================ */
-.mega-dropdown:hover .dropdown-menu-container {
-  opacity: 1;
-  visibility: visible;
-  transform: translateY(0);
+  color: var(--accent);
 }
 
 .dropdown-toggle {
@@ -79,76 +56,111 @@
 }
 
 .chevron {
-  font-size: 11px;
+  font-size: 12px;
 }
 
-/* ===============================
-   MEGA MENU (DESKTOP)
-================================ */
+/* ================= RIGHT SIDE ================= */
+.navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Search */
+.desktop-search input {
+  padding: 8px 15px;
+  border-radius: 20px;
+  border: 1px solid var(--border);
+  font-size: 14px;
+}
+
+/* Username */
+.navbar-user {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-main);
+}
+
+/* Login / Logout */
+.btn-login-desktop {
+  background: var(--accent);
+  color: #fff;
+  padding: 8px 20px;
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+/* ================= DESKTOP MEGA MENU ================= */
+.mega-dropdown {
+  position: relative;
+}
+
 .dropdown-menu-container {
   position: absolute;
-  top: 120%;
+  top: calc(100% + 10px);
   left: 0;
-  width: 720px;
+  width: 640px;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 14px;
   display: grid;
   grid-template-columns: 1fr 2fr;
-  background: var(--bg-light);
-  border: 1px solid var(--border-glass);
-  border-radius: 14px;
   padding: 20px;
-  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.1);
-
   opacity: 0;
   visibility: hidden;
   transform: translateY(10px);
   transition: all 0.25s ease;
+  z-index: 2000;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
 }
 
-/* ===============================
-   CATEGORIES
-================================ */
-.program-categories {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  border-right: 1px solid var(--border-glass);
-  padding-right: 14px;
+.mega-dropdown:hover .dropdown-menu-container {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
 }
 
-.category-link {
-  padding: 10px 12px;
+/* Categories */
+.category-button {
+  width: 100%;
+  padding: 12px;
+  background: none;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+  color: #555;
+  font-size: 14px;
   border-radius: 8px;
-  color: var(--text-muted);
-  text-decoration: none;
-  transition: background 0.2s ease, color 0.2s ease;
 }
 
-.category-link:hover,
-.category-link.active {
-  background: var(--accent-soft);
+.category-button:hover {
+  background: #f3f4f6;
+}
+
+.category-button.active {
   color: var(--accent);
+  background: #eef2ff;
 }
 
-/* ===============================
-   COURSE DETAILS
-================================ */
+/* Course list */
 .course-details {
-  padding-left: 18px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
+  padding-left: 20px;
 }
 
 .details-header {
-  font-size: 15px;
-  color: var(--accent);
-  margin-bottom: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 10px;
 }
 
 .detail-link {
-  color: var(--text-main);
+  display: block;
   text-decoration: none;
+  color: var(--text-main);
   font-size: 14px;
+  margin-bottom: 8px;
 }
 
 .detail-link:hover {
@@ -156,196 +168,33 @@
 }
 
 .view-all-link {
-  margin-top: 12px;
+  display: inline-block;
+  margin-top: 10px;
   font-size: 14px;
   color: var(--accent);
   text-decoration: none;
 }
 
-.view-all-link:hover {
-  text-decoration: underline;
-}
-
-.placeholder-text {
-  color: #6b7280;
-  font-size: 14px;
-}
-
-/* ===============================
-   RIGHT SIDE
-================================ */
-.navbar-right {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-}
-
-/* SEARCH */
-.nav-search input {
-  background: rgba(243, 244, 246, 0.8);
-  border: 1px solid var(--border-glass);
-  border-radius: 999px;
-  padding: 8px 14px;
-  color: var(--text-main);
-  font-size: 14px;
-  width: 180px;
-}
-
-.nav-search input::placeholder {
-  color: #6b7280;
-}
-
-/* USER */
-.navbar-user {
-  font-size: 14px;
-  color: var(--text-main);
-}
-
-/* BUTTONS */
-.btn {
-  padding: 7px 14px;
-  border-radius: 999px;
-  font-size: 14px;
-  cursor: pointer;
-}
-
-.btn-ghost {
-  background: transparent;
-  border: 1px solid var(--border-glass);
-  color: var(--text-main);
-}
-
-.btn-ghost:hover {
-  background: var(--accent-soft);
-}
-
-/* ===============================
-   MOBILE OVERLAY MENU
-================================ */
-.mobile-menu-overlay {
-  position: fixed;
-  top: 72px;
-  left: 0;
-  width: 100%;
-  height: calc(100% - 72px);
-  background: var(--bg-light);
-  z-index: 990;
-  overflow-y: auto;
-  transform: translateX(100%);
-  transition: transform 0.3s ease-out;
-}
-
-.mobile-menu-overlay.open {
-  transform: translateX(0);
-}
-
-.mobile-nav-content {
-  display: flex;
-  flex-direction: column;
-  padding: 20px 24px;
-}
-
-/* Mobile Search */
-.mobile-search {
-  order: -1;
-  margin-bottom: 20px;
-}
-
-.mobile-search input {
-  width: 100%;
-  padding: 12px 16px;
-  font-size: 16px;
-  color: var(--text-main);
-  background: #f3f4f6;
-}
-
-/* Mobile Nav Items */
-.mobile-nav-content .nav-item {
-  display: block;
-  padding: 16px 0;
-  border-bottom: 1px solid var(--border-glass);
-  font-size: 17px;
-  width: 100%;
-  color: var(--text-main);
-}
-
-.mobile-nav-content .nav-item:last-of-type {
-  border-bottom: none;
-}
-
-/* Mobile Dropdown Styling */
-.mobile-dropdown {
-  overflow: visible;
-}
-
-/* Mobile Mega Menu */
-.mobile-mega-content {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  background: transparent;
-  border: none;
-  padding: 0;
-  box-shadow: none;
-  width: 100%;
-  margin-top: 15px;
-}
-
-.mobile-mega-content .program-categories {
-  border-right: none;
-  padding-right: 0;
-  border-bottom: 1px solid var(--border-glass);
-  padding-bottom: 15px;
-}
-
-.mobile-mega-content .course-details {
-  padding-left: 0;
-}
-
-.mobile-mega-content .details-header {
-  margin-top: 10px;
-}
-
-/* Mobile Auth UI */
-.mobile-auth-ui {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  margin-top: 20px;
-  padding-top: 20px;
-  border-top: 1px solid var(--border-glass);
-}
-
-.mobile-user {
-  font-size: 16px;
-  text-align: center;
-}
-
-.mobile-btn {
-  width: 100%;
-  padding: 10px 0;
-}
-
-/* ===============================
-   MOBILE BUTTON
-================================ */
+/* ================= MOBILE BASE ================= */
 .mobile-menu-btn {
   display: none;
   background: none;
   border: none;
-  color: var(--text-main);
-  font-size: 24px;
+  font-size: 30px;
   cursor: pointer;
 }
 
-/* ---------------------------------
-   RESPONSIVE MEDIA QUERIES
---------------------------------- */
-@media (max-width: 1024px) {
-  .navbar-links,
-  .nav-search,
-  .navbar-user,
-  .btn-ghost {
+/* hide mobile menu on desktop */
+.mobile-menu-overlay {
+  display: none;
+}
+
+/* ================= TABLET & MOBILE ================= */
+@media (max-width: 1050px) {
+  .desktop-nav,
+  .desktop-search,
+  .btn-login-desktop,
+  .navbar-user {
     display: none;
   }
 
@@ -353,29 +202,97 @@
     display: block;
   }
 
-  .mega-dropdown:hover .dropdown-menu-container {
-    opacity: 0;
-    visibility: hidden;
+  .mobile-menu-overlay {
+    display: block;
+    position: fixed;
+    top: 72px;
+    left: 0;
+    width: 100%;
+    height: calc(100vh - 72px);
+    background: #fff;
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    z-index: 999;
+  }
+
+  .mobile-menu-overlay.open {
+    transform: translateX(0);
+  }
+
+  .mobile-nav-content {
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  /* Mobile Programs accordion */
+  .mobile-main-btn {
+    font-size: 20px;
+    background: none;
+    border: none;
+    text-align: left;
+    cursor: pointer;
+  }
+
+  .mobile-category-btn {
+    background: #f3f4f6;
+    border: none;
+    padding: 12px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+  }
+
+  .mobile-course-list {
+    padding-left: 15px;
+    margin-top: 10px;
+  }
+
+  .mobile-course-link {
+    display: block;
+    margin-bottom: 8px;
+    text-decoration: none;
+    color: var(--text-main);
+  }
+
+  .mobile-course-link:hover {
+    color: var(--accent);
+  }
+
+  .mobile-link {
+    font-size: 18px;
+    text-decoration: none;
+    color: var(--text-main);
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
   }
 }
 
-@media (max-width: 768px) {
+/* ================= SMALL MOBILE ================= */
+@media (max-width: 750px) {
   .navbar-container {
-    padding: 0 16px;
-    height: 64px;
-  }
-
-  .mobile-menu-overlay {
-    top: 64px;
-    height: calc(100% - 64px);
+    height: 60px;
+    padding: 0 15px;
   }
 
   .navbar-brand img {
-    height: 32px;
+    height: 30px;
   }
 
-  .btn {
-    padding: 8px 16px;
-    font-size: 15px;
+  .mobile-menu-overlay {
+    top: 60px;
+    height: calc(100vh - 60px);
+  }
+
+  .btn-mobile {
+    width: 100%;
+    padding: 12px;
+    background: var(--accent);
+    color: #fff;
+    border-radius: 8px;
+    border: none;
+    font-size: 16px;
   }
 }

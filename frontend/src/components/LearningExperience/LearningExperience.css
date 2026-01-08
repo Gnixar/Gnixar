@@ -224,7 +224,7 @@
    RESPONSIVE
 ================================ */
 /* Tablet */
-@media (max-width: 900px) {
+@media (max-width: 1050px) {
   .gnixar-learn-steps {
     grid-template-columns: repeat(2, 1fr);
     gap: 20px;
@@ -232,7 +232,7 @@
 }
 
 /* Mobile */
-@media (max-width: 600px) {
+@media (max-width: 750px) {
   .gnixar-learn {
     padding: 72px 16px;
   }

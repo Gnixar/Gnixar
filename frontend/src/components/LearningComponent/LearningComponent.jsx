@@ -4,9 +4,9 @@ import './LearningComponent.css';
 
 
 const founderLearningPoints = [
-    { title: 'Case-based Classrooms', icon: BookOpen, detail: 'Meeting-style discussions and debates led by 100+ founders.' },
-    { title: 'Real-World Projects', icon: Briefcase, detail: 'Live business problems through the Business Strategy Lab.' },
-    { title: 'Powerful Network Access', icon: Users, detail: 'Connect with founders, mentors, and peers globally.' },
+    { title: 'Case-based Classrooms', icon: BookOpen, detail: 'Meeting discussions and debates led by founders.' },
+    { title: 'Real-World Projects', icon: Briefcase, detail: 'Live problems through the Business Strategy Lab.' },
+    { title: 'Powerful Network Access', icon: Users, detail: 'Connect with founders, mentors, and peer globally.' },
     { title: 'Internship Opportunities', icon: Star, detail: '3-month roles in fast-growing startup companies.' },
 ];
 

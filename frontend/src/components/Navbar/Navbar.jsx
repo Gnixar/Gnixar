@@ -6,30 +6,33 @@ import "./Navbar.css";
 
 const Navbar = () => {
   const { programs = [] } = usePrograms();
+
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [activeCategory, setActiveCategory] = useState(null); // Initialize to null
+  const [mobileProgramsOpen, setMobileProgramsOpen] = useState(false);
+  const [openMobileCategory, setOpenMobileCategory] = useState(null);
+
+  const [activeCategory, setActiveCategory] = useState(null);
   const [user, setUser] = useState(null);
   const [showLogin, setShowLogin] = useState(false);
 
-  // ✅ Load user on refresh
+  /* ---------- AUTH ---------- */
   useEffect(() => {
     const storedUser = localStorage.getItem("user");
-    if (storedUser) {
-      setUser(JSON.parse(storedUser));
-    }
+    if (storedUser) setUser(JSON.parse(storedUser));
   }, []);
 
-  // ✅ Set initial category after programs load
+  /* ---------- DEFAULT CATEGORY ---------- */
   useEffect(() => {
-    if (programs.length > 0 && activeCategory === null) {
+    if (programs.length && !activeCategory) {
       setActiveCategory(programs[0].category);
     }
   }, [programs, activeCategory]);
 
   const toggleMobile = () => {
-    // Also close the login modal if the user taps the menu button
+    setMobileOpen(prev => !prev);
+    setMobileProgramsOpen(false);
+    setOpenMobileCategory(null);
     setShowLogin(false);
-    setMobileOpen((prev) => !prev);
   };
 
   const handleLogout = () => {
@@ -38,179 +41,173 @@ const Navbar = () => {
     setUser(null);
   };
 
-  // Memoize active details for the mega menu
+  /* ---------- DESKTOP MEGA MENU ---------- */
   const activeDetails = useMemo(
-    () => programs.find((p) => p.category === activeCategory),
+    () => programs.find(p => p.category === activeCategory),
     [programs, activeCategory]
   );
 
-  // Function to render the programs mega menu content
-  const renderMegaMenu = (isMobile = false) => (
-    <div
-      className={
-        isMobile ? "mobile-mega-content" : "dropdown-menu-container"
-      }
-    >
+  const renderDesktopMegaMenu = () => (
+    <div className="dropdown-menu-container">
       <div className="program-categories">
-        {programs.map((program) => (
-          <a
+        {programs.map(program => (
+          <button
             key={program.category}
-            href={program.link}
-            className={`category-link ${
+            className={`category-button ${
               activeCategory === program.category ? "active" : ""
             }`}
-            // Use onClick/onTouchStart for mobile to set category
-            // Use onMouseEnter for desktop
-            onMouseEnter={() =>
-              !isMobile && setActiveCategory(program.category)
-            }
-            onClick={() => isMobile && setActiveCategory(program.category)}
+            onMouseEnter={() => setActiveCategory(program.category)}
           >
             {program.category}
-          </a>
+          </button>
         ))}
       </div>
 
       <div className="course-details">
-        {activeCategory && activeDetails ? (
-          <>
-            <h4 className="details-header">Courses in {activeCategory}</h4>
+        <h4 className="details-header">
+          Courses in {activeCategory}
+        </h4>
 
-            {activeDetails.details?.length ? (
-              activeDetails.details.map((detail) => (
-                <a
-                  key={detail.name}
-                  href={detail.link}
-                  className="detail-link"
-                >
-                  {detail.name}
-                </a>
-              ))
-            ) : (
-              <p className="placeholder-text">No courses listed yet.</p>
-            )}
-
-            <a
-              href={activeDetails.link}
-              className="view-all-link"
-            >
-              View All {activeCategory} &rarr;
-            </a>
-          </>
-        ) : (
-          <p className="placeholder-text">
-            {isMobile
-              ? "Select a category above"
-              : "Hover over a category"}
-          </p>
-        )}
+        {activeDetails?.details?.map(course => (
+          <a key={course.name} href={course.link} className="detail-link">
+            {course.name}
+          </a>
+        ))}
       </div>
     </div>
   );
 
-  // Function to render the navigation links
-  const renderNavLinks = (isMobile = false) => (
-    <>
-      <div
-        className={`nav-item mega-dropdown ${isMobile ? 'mobile-dropdown' : ''}`}
-        onMouseLeave={() => !isMobile && setActiveCategory(null)}
-      >
-        <span className="dropdown-toggle">
-          Programs <span className="chevron">&#9662;</span>
-        </span>
-
-        {programs.length > 0 && renderMegaMenu(isMobile)}
-      </div>
-
-      <Link to="/mockinterview" className="nav-item">Mock Interview</Link>
-      <Link to="/aboutus" className="nav-item">About</Link>
-      <Link to="/contactus" className="nav-item">Contact</Link>
-    </>
-  );
-
-  // Function to render the Auth/User UI
-  const renderAuthUI = (isMobile = false) => (
-    <>
-      {user ? (
-        <>
-          <span className={`navbar-user ${isMobile ? 'mobile-user' : ''}`}>
-            Hello, {user.username || user.email}
-          </span>
-          <button 
-            className={`btn btn-ghost ${isMobile ? 'mobile-btn' : ''}`} 
-            onClick={handleLogout}
+  /* ---------- MOBILE PROGRAMS ---------- */
+  const renderMobilePrograms = () => (
+    <div className="mobile-programs">
+      {programs.map(program => (
+        <div key={program.category}>
+          <button
+            className="mobile-category-btn"
+            onClick={() =>
+              setOpenMobileCategory(prev =>
+                prev === program.category ? null : program.category
+              )
+            }
           >
-            Logout
+            {program.category}
+            <span>
+              {openMobileCategory === program.category ? "−" : "+"}
+            </span>
           </button>
-        </>
-      ) : (
-        <button
-          className={`btn btn-ghost ${isMobile ? 'mobile-btn' : ''}`}
-          onClick={() => {
-            setShowLogin(true);
-            setMobileOpen(false); // Close mobile menu when opening modal
-          }}
-        >
-          Login
-        </button>
-      )}
-    </>
+
+          {openMobileCategory === program.category && (
+            <div className="mobile-course-list">
+              {program.details?.map(course => (
+                <a
+                  key={course.name}
+                  href={course.link}
+                  className="mobile-course-link"
+                >
+                  {course.name}
+                </a>
+              ))}
+            </div>
+          )}
+        </div>
+      ))}
+    </div>
   );
 
   return (
     <header className="navbar">
       <div className="navbar-container">
-        {/* LOGO */}
         <Link to="/" className="navbar-brand">
           <img src="/logo.png" alt="Logo" />
         </Link>
 
-        {/* DESKTOP NAV LINKS */}
-        <nav className="navbar-links">{renderNavLinks(false)}</nav>
+        {/* ---------- DESKTOP NAV ---------- */}
+        <nav className="desktop-nav">
+          <div className="nav-item mega-dropdown">
+            <span className="dropdown-toggle">
+              Programs <span className="chevron">▼</span>
+            </span>
+            {renderDesktopMegaMenu()}
+          </div>
 
-        {/* RIGHT SIDE */}
+          <Link to="/mockinterview" className="nav-item">Mock Interview</Link>
+          <Link to="/aboutus" className="nav-item">About</Link>
+          <Link to="/contactus" className="nav-item">Contact</Link>
+        </nav>
+
+        {/* ---------- DESKTOP RIGHT ---------- */}
         <div className="navbar-right">
-          {/* SEARCH (DESKTOP) */}
-          <form className="nav-search" onSubmit={(e) => e.preventDefault()}>
-            <input type="text" placeholder="Search programs" />
+          <form className="desktop-search">
+            <input type="text" placeholder="Search..." />
           </form>
 
-          {/* AUTH UI (DESKTOP) */}
-          {renderAuthUI(false)}
+          {user ? (
+            <>
+              <span className="navbar-user">
+                Hi, {user.username || user.email}
+              </span>
+              <button
+                className="btn-login-desktop"
+                onClick={handleLogout}
+              >
+                Logout
+              </button>
+            </>
+          ) : (
+            <button
+              className="btn-login-desktop"
+              onClick={() => setShowLogin(true)}
+            >
+              Login
+            </button>
+          )}
 
-          {/* MOBILE MENU BUTTON */}
           <button className="mobile-menu-btn" onClick={toggleMobile}>
-            {mobileOpen ? <>&#x2715;</> : <>&#x2630;</>}
+            {mobileOpen ? "✕" : "☰"}
           </button>
         </div>
       </div>
 
-      {/* MOBILE MENU OVERLAY */}
+      {/* ---------- MOBILE MENU ---------- */}
       <div className={`mobile-menu-overlay ${mobileOpen ? "open" : ""}`}>
-        <nav className="mobile-nav-content">
-          {/* SEARCH (MOBILE) */}
-          <form 
-            className="nav-search mobile-search" 
-            onSubmit={(e) => e.preventDefault()}
+        <div className="mobile-nav-content">
+          <button
+            className="mobile-main-btn"
+            onClick={() => setMobileProgramsOpen(prev => !prev)}
           >
-            <input type="text" placeholder="Search programs" />
-          </form>
+            Programs {mobileProgramsOpen ? "▲" : "▼"}
+          </button>
 
-          {/* NAV LINKS (MOBILE) */}
-          {renderNavLinks(true)}
+          {mobileProgramsOpen && renderMobilePrograms()}
 
-          {/* AUTH UI (MOBILE) */}
-          <div className="mobile-auth-ui">
-            {renderAuthUI(true)}
+          <Link to="/mockinterview" className="mobile-link">Mock Interview</Link>
+          <Link to="/aboutus" className="mobile-link">About</Link>
+          <Link to="/contactus" className="mobile-link">Contact</Link>
+
+          <div className="mobile-auth">
+            {user ? (
+              <button className="btn-mobile" onClick={handleLogout}>
+                Logout
+              </button>
+            ) : (
+              <button
+                className="btn-mobile"
+                onClick={() => {
+                  setShowLogin(true);
+                  setMobileOpen(false);
+                }}
+              >
+                Login
+              </button>
+            )}
           </div>
-        </nav>
+        </div>
       </div>
 
-      {/* LOGIN MODAL */}
       {showLogin && (
         <Login
           onClose={() => setShowLogin(false)}
-          onLoginSuccess={(userData) => setUser(userData)}
+          onLoginSuccess={setUser}
         />
       )}
     </header>

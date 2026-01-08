@@ -1,35 +1,34 @@
 /* --- Base Section Container and Responsive Layout --- */
-.mesa-full-section {
+.gnixar-full-section {
     font-family: 'Inter', sans-serif;
     padding: 60px 20px;
     max-width: 1400px;
     margin: 0 auto;
     display: flex;
     gap: 40px;
-    /* background-color: #0f172a;  */
     color: #e5e7eb;
     position: relative;
 }
 
 /* Add subtle animated background glow */
-.mesa-full-section::before {
+.gnixar-full-section::before {
     content: '';
     position: absolute;
     inset: 0;
-    /* background: radial-gradient(circle at top left, rgba(56,189,248,0.08), transparent 70%); */
     pointer-events: none;
     z-index: 0;
 }
 
-.mesa-outcomes-component, 
-.mesa-admissions-component {
+.gnixar-outcomes-component,
+.gnixar-admissions-component {
     flex: 1;
     position: relative;
     z-index: 1;
 }
 
 /* --- Headings and Descriptions --- */
-.outcomes-heading, .admissions-heading {
+.outcomes-heading,
+.admissions-heading {
     font-size: 32px;
     font-weight: 800;
     margin-bottom: 20px;
@@ -57,7 +56,7 @@
     justify-content: center;
 }
 
-.heading-icon { 
+.heading-icon {
     margin-right: 10px;
     color: #38bdf8;
 }
@@ -289,13 +288,13 @@
 }
 
 /* --- Responsive CSS --- */
-@media (max-width: 1100px) {
-    .mesa-full-section {
+@media (max-width: 1050px) {
+    .gnixar-full-section {
         flex-direction: column;
         gap: 60px;
     }
 
-    .mesa-outcomes-component {
+    .gnixar-outcomes-component {
         border-bottom: 1px solid rgba(56,189,248,0.2);
         padding-bottom: 40px;
     }
@@ -310,13 +309,14 @@
     }
 }
 
-@media (max-width: 650px) {
-    .outcomes-heading, .admissions-heading {
+@media (max-width: 750px) {
+    .outcomes-heading,
+    .admissions-heading {
         font-size: 26px;
         justify-content: flex-start;
     }
 
-    .mesa-outcomes-component {
+    .gnixar-outcomes-component {
         text-align: left;
     }
 

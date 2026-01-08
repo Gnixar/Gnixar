@@ -153,11 +153,13 @@
 
 /* ---------------- <=750px ---------------- */
 @media (max-width: 750px) {
-  #programs-page{
-    padding: 0px 30px;
+  #programs-page {
+    padding: 0px 20px; /* smaller padding for mobile */
   }
+
+  /* Make 2 cards per row */
   .programs-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
     gap: 16px;
   }
 

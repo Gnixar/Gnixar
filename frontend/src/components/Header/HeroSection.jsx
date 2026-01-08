@@ -1,6 +1,4 @@
-// src/components/Header/HeroSection.jsx
 import React from "react";
-import Forms from "../Forms/Forms";
 import "./HeroSection.css";
 
 const HeroSection = () => {
@@ -23,10 +21,6 @@ const HeroSection = () => {
             <a href="#programs-page">Explore Courses</a>
           </button>
         </div>
-
-        {/* <div className="forms">
-          <Forms />
-        </div> */}
       </div>
     </section>
   );

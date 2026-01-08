@@ -1,176 +1,236 @@
 /* =====================================================
-   MAIN SECTION
+   LEARNING SECTION – OUTER
 ===================================================== */
 .learning-section-main {
-    width: 100%;
-    padding: 40px 0;
+  width: 100%;
+  padding: 40px 0;
+  /* display: flex; */
+  justify-content: center;
 }
 
 /* =====================================================
-   CONTAINER (MATCHES OUTCOMES COMPONENT)
+   CONTAINER (BACKGROUND)
 ===================================================== */
 .learning-section-contrainer {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 80px 60px;
-    border-radius: 26px;
-    color: #ffffff;
+  width: 100%;
+  max-width: 1200px;
+  padding: 80px 60px;
+  border-radius: 26px;
+  color: #ffffff;
 
-    background-image:
-        linear-gradient(to left,
-            rgba(2, 6, 23, 0.616) 20%,
-            rgba(2, 6, 23, 0.587) 40%,
-            rgba(2, 6, 23, 0.393) 65%,
-            rgba(2, 6, 23, 0) 100%),
-        url("/bg4.png");
+  background-image:
+    linear-gradient(
+      to left,
+      rgba(2, 6, 23, 0.616) 20%,
+      rgba(2, 6, 23, 0.587) 40%,
+      rgba(2, 6, 23, 0.393) 65%,
+      rgba(2, 6, 23, 0) 100%
+    ),
+    url("/bg4.png");
 
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* =====================================================
-   MAIN HEADING (GRADIENT TEXT)
+   HEADER
 ===================================================== */
-.learning-main-heading>h2{
-    font-size: 36px;
-    font-weight: 800;
-    margin-bottom: 60px;
-    max-width: 680px;
-    text-align: center;
-    margin-left: auto;
-    margin-right: auto;
-    background: linear-gradient(120deg, #e5edff, #6297d8);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+.learning-main-heading {
+  max-width: 620px;
+  margin: 0 auto 40px;
+  text-align: center;
+}
+
+.learning-main-heading > h2 {
+  font-size: 2.4rem;
+  font-weight: 800;
+  line-height: 1.2;
+  background: linear-gradient(120deg, #e5edff, #bfdbfe);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;}
+
+
+  .section-title {
+  font-size: clamp(20px, 2.4vw, 26px);
+  font-weight: 700;
+  color: #e5edff;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+/* SUB HEADING / DESCRIPTION */
+.learning-sub-section > p,
+.learning-desc {
+  max-width: 620px;
+  margin: 0 auto 40px;
+  font-size: 0.95rem;
+  line-height: 1.8;
+  color: #cbd5f5;
+  text-align: center;
 }
 
 /* =====================================================
-   SUB SECTIONS
-===================================================== */
-.learning-sub-section >p{
-    margin-bottom: 60px;
-    text-align: center;
-}
-
-.section-title {
-    font-size: 26px;
-    font-weight: 700;
-    color: #e5edff;
-    margin-bottom: 10px;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
-}
-
-.section-subtitle {
-    font-size: 15px;
-    color: rgba(226, 232, 240, 0.9);
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
-}
-
-/* =====================================================
-   FOUNDERS GRID
+   FOUNDERS GRID / CARDS
+   Desktop: 4 cards, Tablet/Mobile: 2 cards
 ===================================================== */
 .founders-points-grid {
-    margin-top: 40px;
-    display: grid;
-    justify-items: center;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 24px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  justify-items: center;
+  margin-top: 20px;
 }
 
 /* =====================================================
-   FOUNDER CARD (MATCH STATS CARD STYLE)
+   CARD DESIGN – MATCHES GNIXAR STYLE
 ===================================================== */
 .founder-point {
-    background: radial-gradient(circle at top left,
-            rgba(56, 189, 248, 0.18),
-            rgba(15, 23, 42, 0.96));
+  position: relative;
+  padding: 28px 24px;
+  border-radius: 20px;
 
-    border-radius: 16px;
-    border: 1px solid rgba(148, 163, 184, 0.45);
-    text-align: center;
-    align-items: center;
-    box-shadow:
-        0 18px 36px rgba(15, 23, 42, 0.9),
-        0 0 0 1px rgba(15, 23, 42, 0.95);
+  background: radial-gradient(
+    circle at top left,
+    rgba(57, 172, 221, 0.347),
+    rgba(17, 38, 82, 0.96)
+  );
 
-    padding: 28px 24px;
-    transition: all 250ms ease;
+  border: 1px solid rgba(148, 163, 184, 0.45);
+  box-shadow:
+    0 18px 36px rgba(15, 23, 42, 0.9),
+    0 0 0 1px rgba(15, 23, 42, 0.95);
 
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  transition: all 250ms ease;
 }
 
 .founder-point:hover {
-    transform: translateY(-6px);
-    border-color: rgba(96, 165, 250, 0.9);
-    box-shadow:
-        0 24px 48px rgba(15, 23, 42, 0.98),
-        0 0 0 1px rgba(96, 165, 250, 0.8);
+  transform: translateY(-6px);
+  border-color: rgba(96, 165, 250, 0.9);
+  box-shadow:
+    0 24px 48px rgba(15, 23, 42, 0.98),
+    0 0 0 1px rgba(96, 165, 250, 0.8);
 }
 
 /* =====================================================
-   ICON
+   STEP / ICON
 ===================================================== */
 .point-icon {
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    background: rgba(56, 189, 248, 0.15);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-left: auto;
-    margin-right: auto;
-    color: #93c5fd;
-    margin-bottom: 16px;
-    transition: transform 250ms ease;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(56, 191, 248, 0.26);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  letter-spacing: 0.2em;
+  color: #93c5fd;
+  margin-bottom: 16px;
+  transition: transform 250ms ease;
 }
 
 .founder-point:hover .point-icon {
-    transform: scale(1.25);
+  transform: scale(1.25);
 }
 
 /* =====================================================
-   TEXT
+   CARD TITLE & DESCRIPTION
 ===================================================== */
-.point-title {
-    font-size: 17px;
-    font-weight: 700;
-
-    background: linear-gradient(120deg, #60a5fa, #a5b4fc);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    text-align: center;
-    margin-bottom: 8px;
+.founder-point h3 {
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin: 10px 0 8px;
+  background: linear-gradient(120deg, #60a5fa, #a5b4fc);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
-.point-detail {
+.founder-point p {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.7;
+  color: #cbd5f5;
+}
+
+/* =====================================================
+   RESPONSIVE – TABLET (≤1050px) – 2 CARDS
+===================================================== */
+@media (max-width: 1050px) {
+  .founders-points-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .learning-section-main {
+    padding: 32px 0;
+  }
+
+  .learning-section-contrainer {
+    padding: 64px 40px;
+  }
+
+  .learning-main-heading > h2 {
+    font-size: 2.1rem;
+    margin-bottom: 36px;
+  }
+
+  .learning-sub-section > p,
+  .learning-desc {
+    margin-bottom: 36px;
+  }
+}
+
+/* =====================================================
+   RESPONSIVE – MOBILE (≤750px) – 2 CARDS
+===================================================== */
+@media (max-width: 750px) {
+  .learning-section-main {
+    padding: 24px 0;
+  }
+
+  .learning-section-contrainer {
+    padding: 48px 20px;
+  }
+
+  .learning-main-heading > h2 {
+    font-size: 1.8rem;
+    margin-bottom: 28px;
+  }
+
+  .learning-sub-section > p,
+  .learning-desc {
     font-size: 14px;
-    color: rgba(226, 232, 240, 0.9);
-    line-height: 1.6;
-    text-align: center;
-}
+    margin-bottom: 28px;
+  }
 
-/* =====================================================
-   RESPONSIVE
-===================================================== */
-@media (max-width: 768px) {
-    .learning-section-contrainer {
-        padding: 60px 24px;
-    }
+  .founders-points-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+  }
 
-    .learning-main-heading {
-        font-size: clamp(26px, 6vw, 32px);
-    }
+  .founder-point {
+    padding: 22px 18px;
+  }
 
-    .section-title {
-        font-size: 22px;
-    }
+  .point-icon {
+    width: 36px;
+    height: 36px;
+    margin-bottom: 12px;
+  }
+
+  .founder-point h3 {
+    font-size: 0.95rem;
+  }
+
+  .founder-point p {
+    font-size: 0.85rem;
+  }
 }

@@ -26,13 +26,13 @@ export default function Differentiation() {
 
         {/* LEFT */}
         <div className="diff-left">
-          <span className="diff-kicker">Why Mesa</span>
+          <span className="diff-kicker">Why Gnixar</span>
           <h2 className="diff-title">
-            What makes Mesa <br />
+            What makes Gnixar <br />
             <span>different</span>
           </h2>
           <p className="diff-sub">
-            Mesa is built to bridge the gap between education and industry —
+            Gnixar is built to bridge the gap between education and industry —
             with outcomes that matter.
           </p>
         </div>

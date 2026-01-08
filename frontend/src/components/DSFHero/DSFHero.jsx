@@ -19,7 +19,6 @@ const DSFHero = () => {
     shortDescription:
       "Kickstart your career in Data Science with a structured, hands-on program designed for beginners and upskillers.",
     duration: "3 Months",
-    level: "Beginner to Intermediate",
     mode: "Online Live",
     language: "English",
   };
@@ -38,10 +37,6 @@ const DSFHero = () => {
             <div className="hero-chip">
               <span className="hero-chip-label">Duration</span>
               <span className="hero-chip-value">{course.duration}</span>
-            </div>
-            <div className="hero-chip">
-              <span className="hero-chip-label">Level</span>
-              <span className="hero-chip-value">{course.level}</span>
             </div>
             <div className="hero-chip">
               <span className="hero-chip-label">Mode</span>
