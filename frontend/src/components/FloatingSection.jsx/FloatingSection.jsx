@@ -11,7 +11,7 @@ const FloatingSection = () => {
           <div className="icon-circle">
             <HeartHandshake size={24} />
           </div>
-          <p>100+ Expert Mentors</p>
+          <p>10+ Expert Mentors</p>
         </div>
 
         <div className="divider"></div>
@@ -29,7 +29,7 @@ const FloatingSection = () => {
           <div className="icon-circle">
             <Users size={24} />
           </div>
-          <p>50,000+ Students Enrolled</p>
+          <p>500+ Students Enrolled</p>
         </div>
 
         <div className="divider"></div>
@@ -38,7 +38,7 @@ const FloatingSection = () => {
           <div className="icon-circle">
             <Award size={24} />
           </div>
-          <p>500+ Courses Available</p>
+          <p>50+ Courses Available</p>
         </div>
 
       </div>

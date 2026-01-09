@@ -6,9 +6,7 @@ const feedbacks = [
     id: 1,
     name: "Aman Verma",
     role: "Final Year Student",
-    institute: "IIT Delhi",
     rating: 5,
-    image: "https://randomuser.me/api/portraits/men/45.jpg",
     feedback:
       "Mock interviews helped me identify my weak areas and improve my confidence. The feedback was extremely detailed and practical.",
   },
@@ -16,9 +14,7 @@ const feedbacks = [
     id: 2,
     name: "Sneha Kapoor",
     role: "Software Engineer",
-    institute: "Infosys",
     rating: 4,
-    image: "https://randomuser.me/api/portraits/women/52.jpg",
     feedback:
       "The interviewers were very experienced and guided me on system design and DSA. Highly recommended for serious preparation.",
   },
@@ -26,9 +22,7 @@ const feedbacks = [
     id: 3,
     name: "Rohit Mehta",
     role: "Computer Science Student",
-    institute: "NIT Trichy",
-    rating: 5,
-    image: "https://randomuser.me/api/portraits/men/61.jpg",
+    rating: 4,
     feedback:
       "It felt like a real interview. The structured feedback helped me crack my product-based company interview.",
   },
@@ -36,9 +30,7 @@ const feedbacks = [
     id: 4,
     name: "Neha Singh",
     role: "Placement Coordinator",
-    institute: "SRM University",
     rating: 5,
-    image: "https://randomuser.me/api/portraits/women/65.jpg",
     feedback:
       "We recommended mock interviews to our students, and the results were outstanding. Great mentors and real-world questions.",
   },
@@ -59,16 +51,16 @@ const MockInterviewFeedback = () => {
           <div key={item.id} className="feedback-card">
             {/* Card Header */}
             <div className="feedback-card-header">
-              <img
+              {/* <img
                 className="feedback-avatar"
                 src={item.image}
                 alt={item.name}
-              />
+              /> */}
 
               <div className="feedback-user">
                 <h3>{item.name}</h3>
                 <span>
-                  {item.role} · {item.institute}
+                  {item.role} {item.institute}
                 </span>
               </div>
             </div>

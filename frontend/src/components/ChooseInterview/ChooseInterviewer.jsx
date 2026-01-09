@@ -8,7 +8,7 @@ const interviewers = [
     role: "Senior Software Engineer",
     company: "Google",
     experience: "8+ Years",
-    image: "https://randomuser.me/api/portraits/men/32.jpg",
+    image: "",
   },
   {
     id: 2,
@@ -16,7 +16,7 @@ const interviewers = [
     role: "Frontend Engineer",
     company: "Amazon",
     experience: "6+ Years",
-    image: "https://randomuser.me/api/portraits/women/44.jpg",
+    image: "",
   },
   {
     id: 3,
@@ -24,7 +24,7 @@ const interviewers = [
     role: "Backend Engineer",
     company: "Microsoft",
     experience: "7+ Years",
-    image: "https://randomuser.me/api/portraits/men/65.jpg",
+    image: "",
   },
   {
     id: 4,
@@ -32,7 +32,7 @@ const interviewers = [
     role: "Full Stack Engineer",
     company: "Flipkart",
     experience: "5+ Years",
-    image: "https://randomuser.me/api/portraits/women/68.jpg",
+    image: "",
   },
 ];
 

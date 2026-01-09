@@ -4,10 +4,11 @@ import './LearningComponent.css';
 
 
 const founderLearningPoints = [
-    { title: 'Case-based Classrooms', icon: BookOpen, detail: 'Meeting discussions and debates led by founders.' },
-    { title: 'Real-World Projects', icon: Briefcase, detail: 'Live problems through the Business Strategy Lab.' },
-    { title: 'Powerful Network Access', icon: Users, detail: 'Connect with founders, mentors, and peer globally.' },
-    { title: 'Internship Opportunities', icon: Star, detail: '3-month roles in fast-growing startup companies.' },
+    { title: 'Case-based Classrooms', icon: BookOpen, detail: 'Meeting discussions and debates led by co-founders.' },
+    { title: 'Real-World Projects', icon: Briefcase, detail: 'Live problem solving through the Strategy Lab.' },
+    { title: 'Powerful Network Access', icon: Users, detail: 'Connect with mentors, and peer globally.' },
+    { title: 'Internship Opportunities', icon: Star, detail: 'Get Internship opportunities in reputed companies.' },
+
 ];
 
 
@@ -23,13 +24,13 @@ const LearningComponent = () => {
                 <div className="learning-sub-section academics-section">
                     <h3 className="section-title">New Age Academics</h3>
                     <p className="section-subtitle">
-                        Learn business from world-renowned professors and case studies.
+                        Learn from top mentors and real case studies.
                     </p>
                 </div>
                 {/* --- Section 2: Learn Directly from Founders --- */}
                 <div className="learning-sub-section founders-section">
-                    <h3 className="section-title">Learn directly from Founders</h3>
-                    <p className="section-subtitle">Solve real business problems with 100+ Founders.</p>
+                    <h3 className="section-title">Learn directly from Professors</h3>
+                    <p className="section-subtitle">Solve real time problems with live classes.</p>
 
                     <div className="founders-points-grid">
                         {founderLearningPoints.map((point, index) => (

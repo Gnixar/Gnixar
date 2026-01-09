@@ -28,7 +28,6 @@ const steps = [
 export default function LearningExperience() {
   const [openForm, setOpenForm] = useState(false);
 
-  // Lock body scroll (same as SuccessStories)
   useEffect(() => {
     document.body.style.overflow = openForm ? "hidden" : "auto";
   }, [openForm]);

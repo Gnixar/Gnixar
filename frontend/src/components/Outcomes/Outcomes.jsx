@@ -12,12 +12,12 @@ import "./Outcomes.css";
 import logo1 from "../../assets/wipro.png";
 
 const statsData = [
-  { id: 1, IconComponent: IndianRupee, value: "26 Lakhs", label: "Average CTC" },
-  { id: 2, IconComponent: TrendingUp, value: "45 Lakhs", label: "Highest CTC" },
-  { id: 3, IconComponent: Users, value: "70 +", label: "Hiring partners" },
+  { id: 1, IconComponent: IndianRupee, value: "5.5 Lakhs", label: "Average CTC" },
+  { id: 2, IconComponent: TrendingUp, value: "12 Lakhs", label: "Highest CTC" },
+  { id: 3, IconComponent: Users, value: "30+", label: "Hiring partners" },
   { id: 4, IconComponent: CheckCircle, value: "100 %", label: "Placement rate" },
-  { id: 5, IconComponent: Briefcase, value: "150 +", label: "Recruiters" },
-  { id: 6, IconComponent: Award, value: "500 +", label: "Offers Made" }
+  { id: 5, IconComponent: Briefcase, value: "70 +", label: "Recruiters" },
+  { id: 6, IconComponent: Award, value: "300 +", label: "Offers Made" }
 ];
 
 const partnersData = Array(16).fill(logo1);

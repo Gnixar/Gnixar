@@ -1,11 +1,10 @@
 .diff-section {
   position: relative;
-  /* background: #020617; */
-  padding: 80px 20px;
+  padding: 40px 20px;
 }
 
 .diff-inner {
-  max-width: 1120px;
+  max-width: 1200px;
   margin: auto;
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr);
@@ -90,33 +89,80 @@
 }
 
 /* ========================= */
-/* RESPONSIVE CODE (LAST) */
+/* RESPONSIVE */
 /* ========================= */
 
-/* TABLET */
-@media (max-width: 900px) {
+/* ----------- TABLET ≤1050px ----------- */
+@media (max-width: 1050px) {
   .diff-inner {
     grid-template-columns: 1fr;
-    gap: 36px;
+    gap: 40px;
   }
 
+  /* Disable sticky on tablet */
   .diff-left {
     position: relative;
     top: 0;
   }
+
+  .diff-title {
+    font-size: 2rem;
+  }
+
+  .diff-sub {
+    font-size: 0.95rem;
+    max-width: 520px;
+  }
+
+  .diff-right {
+    gap: 18px;
+  }
+
+  .diff-card {
+    padding: 22px 22px 20px;
+  }
+
+  .diff-card h3 {
+    font-size: 1.05rem;
+  }
 }
 
-/* MOBILE */
-@media (max-width: 600px) {
+/* ----------- MOBILE ≤750px ----------- */
+@media (max-width: 750px) {
   .diff-section {
-    padding: 60px 16px;
+    padding: 56px 16px;
   }
 
   .diff-title {
-    font-size: 1.8rem;
+    font-size: 1.6rem;
+    line-height: 1.25;
+  }
+
+  .diff-sub {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    max-width: 100%;
+  }
+
+  .diff-right {
+    gap: 16px;
   }
 
   .diff-card {
     padding: 20px 18px;
+    border-radius: 16px;
+  }
+
+  .diff-index {
+    font-size: 0.65rem;
+  }
+
+  .diff-card h3 {
+    font-size: 1rem;
+  }
+
+  .diff-card p {
+    font-size: 0.85rem;
+    line-height: 1.6;
   }
 }

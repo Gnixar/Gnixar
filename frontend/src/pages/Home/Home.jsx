@@ -12,7 +12,6 @@ import Outcomes from "../../components/Outcomes/Outcomes";
 import ProgramSection from "../../components/ProgramSection/ProgramSection";
 import StudentProjects from "../../components/StudentProjects/StudentProjects";
 import SuccessStories from "../../components/SucessStories/SuccessStories";
-import TrustStrip from "../../components/TrustStrip/TrustStrip";
 import UniPartners from "../../components/UniPartners/UniPartners";
 
 
@@ -31,7 +30,6 @@ const Home = () => {
       <LearningComponent />
       <StudentProjects/>
       <CurriculumOverview /> 
-      <TrustStrip/>
       <LearningExperience /> 
       <Differentiation />
       <Admission/>

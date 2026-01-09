@@ -1,6 +1,6 @@
 import React from "react";
-import { Bot, Home, Zap } from "lucide-react";
 import "./FocusAreas.css";
+import { Bot, Home, Zap, Briefcase } from "lucide-react";
 
 const focusAreas = [
   {
@@ -37,6 +37,18 @@ const focusAreas = [
       { value: "D2C", label: "Sales" },
       { value: "B2B", label: "Sprints" },
       { value: "Real", label: "Revenue" },
+    ],
+  },
+  {
+    id: 4,
+    title: "Industry & Career Outcomes",
+    description:
+      "Get hired or freelance with real-world experience, referrals, and portfolio-ready projects.",
+    IconComponent: Briefcase,
+    metrics: [
+      { value: "100+", label: "Hiring Partners" },
+      { value: "Paid", label: "Live Projects" },
+      { value: "Career", label: "Support" },
     ],
   },
 ];

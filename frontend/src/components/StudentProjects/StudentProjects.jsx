@@ -2,12 +2,30 @@ import { useRef } from "react";
 import "./StudentProjects.css";
 
 const projects = [
-  { img: "/ecommerce.png", title: "E-Commerce Platform" },
-  { img: "/dashboard.png", title: "Analytics Dashboard" },
-  { img: "/travel.png", title: "Travel Booking App" },
-  { img: "/socialmedia.png", title: "Social Media Platform" },
-  { img: "/student2.jpg", title: "Fintech Web App" },
-  { img: "/student2.jpg", title: "Portfolio Website" },
+  {
+    img: "/dashboard.png",
+    title: "Analytics Dashboard",
+    desc: "Interactive analytics dashboard with real-time data visualization and role-based access.",
+    stack: "React · Node.js · MongoDB · Chart.js",
+  },
+  {
+    img: "/socialmedia.png",
+    title: "Social Media Platform",
+    desc: "Feature-rich social platform with authentication, feeds, likes, and real-time chat.",
+    stack: "React · Firebase · Node.js · WebSockets",
+  },
+  {
+    img: "/travel.png",
+    title: "Travel Booking App",
+    desc: "End-to-end travel booking system with search, filters, payments, and admin panel.",
+    stack: "React · Express · MongoDB · Stripe",
+  },
+  {
+    img: "/ecommerce.png",
+    title: "E-Commerce Platform",
+    desc: "Scalable e-commerce application with cart, checkout, and order management.",
+    stack: "React · Node.js · MongoDB · Razorpay",
+  },
 ];
 
 export default function StudentProjects() {
@@ -21,43 +39,42 @@ export default function StudentProjects() {
   };
 
   return (
-    <section className="crio-projects">
-      <div className="crio-wrapper">
+    <section className="gnixar-projects">
+      <div className="gnixar-wrapper">
 
         {/* HEADER */}
-        <div className="crio-header">
+        <div className="gnixar-header">
           <h2>Real-world Projects built by learners</h2>
           <p>Hands-on projects that simulate real industry workflows.</p>
         </div>
 
         {/* CAROUSEL */}
-        <div className="crio-carousel">
+        <div className="gnixar-carousel">
 
           <button
-            className="crio-arrow left"
+            className="gnixar-arrow left"
             onClick={() => scroll("left")}
             aria-label="Scroll Left"
           >
             ‹
           </button>
 
-          <div className="crio-scroll" ref={scrollRef}>
+          <div className="gnixar-scroll" ref={scrollRef}>
             {projects.map((proj, i) => (
-              <div className="crio-card" key={i}>
+              <div className="gnixar-card" key={i}>
 
-                <div className="crio-card-icon">
+                <div className="gnixar-card-icon">
                   <img src={proj.img} alt={proj.title} />
                 </div>
 
-                <h3 className="crio-card-title">{proj.title}</h3>
+                <h3 className="gnixar-card-title">{proj.title}</h3>
 
-                <p className="crio-card-desc">
-                  Build a scalable, production-ready application following
-                  real-world engineering best practices.
+                <p className="gnixar-card-desc">
+                  {proj.desc}
                 </p>
 
-                <div className="crio-card-stack">
-                  React · Node.js · MongoDB
+                <div className="gnixar-card-stack">
+                  {proj.stack}
                 </div>
 
               </div>
@@ -65,7 +82,7 @@ export default function StudentProjects() {
           </div>
 
           <button
-            className="crio-arrow right"
+            className="gnixar-arrow right"
             onClick={() => scroll("right")}
             aria-label="Scroll Right"
           >
@@ -73,7 +90,6 @@ export default function StudentProjects() {
           </button>
 
         </div>
-
       </div>
     </section>
   );

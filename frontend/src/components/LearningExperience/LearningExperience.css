@@ -3,7 +3,7 @@
 ================================ */
 .gnixar-learn {
     width: 100%;
-    padding: 40px 0;
+    padding: 40px 20px;
     color: #ffffff;
 }
 
@@ -153,13 +153,35 @@
 }
  /* INNER DESCRIPTION */
 .gnixar-desc {
-  max-width: 620px;
-  margin: 0 auto 40px;
-  font-size: 0.95rem;
-  line-height: 1.8;
-  color: #cbd5f5;
+  font-size: 1.25rem; /* 20px */
+  line-height: 1.7;
+  color: rgba(226, 232, 240, 0.95);
+  max-width: 640px;
+  margin: 0 auto 48px;
   text-align: center;
 }
+
+/* STATS */
+.gnixar-stats {
+  display: flex;
+  justify-content: center;
+  gap: 48px;
+  text-align: center;
+}
+
+.gnixar-stats h4 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  background: linear-gradient(120deg, #edf1f3, #6366f1);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gnixar-stats span {
+  font-size: rem;
+  color: #cbd5f5;
+}
+
 
 
  .form-overlay {
@@ -173,27 +195,6 @@
   justify-content: center;
 }
 
-/* STATS */
-.gnixar-stats {
-  display: flex;
-  justify-content: center;
-  gap: 48px;
-  /* margin-bottom: 60px;  */
-  text-align: center;
-}
-
-.gnixar-stats h4 {
-  font-size: 1.6rem;
-  font-weight: 700;
-  background: linear-gradient(120deg, #38bdf8, #6366f1);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.gnixar-stats span {
-  font-size: 0.8rem;
-  color: #cbd5f5;
-}
 
 /* CTA */
 .gnixar-cta {
@@ -219,37 +220,116 @@
   box-shadow: 0 12px 30px rgba(56, 189, 248, 0.4);
 }
 
-
 /* ===============================
    RESPONSIVE
 ================================ */
-/* Tablet */
+
+/* ----------- TABLET ≤1050px ----------- */
 @media (max-width: 1050px) {
+  .gnixar-learn-inner {
+    padding: 64px 40px;
+  }
+
+  .gnixar-title {
+    font-size: 2rem;
+  }
+
+  .gnixar-main-container > p {
+    font-size: 0.95rem;
+    margin-bottom: 36px;
+  }
+
+  /* 2 CARDS */
   .gnixar-learn-steps {
     grid-template-columns: repeat(2, 1fr);
     gap: 20px;
   }
+
+  .gnixar-learn-card {
+    padding: 24px 20px;
+  }
+
+  .gnixar-desc {
+    font-size: 1.1rem;
+    margin-bottom: 40px;
+  }
+
+  .gnixar-stats {
+    gap: 36px;
+  }
+
+  .gnixar-stats h4 {
+    font-size: 1.4rem;
+  }
 }
 
-/* Mobile */
+/* ----------- MOBILE ≤750px ----------- */
 @media (max-width: 750px) {
   .gnixar-learn {
-    padding: 72px 16px;
+    padding: 60px 16px;
+  }
+
+  .gnixar-learn-inner {
+    padding: 48px 20px;
+    border-radius: 20px;
   }
 
   .gnixar-title {
-    font-size: 1.8rem;
+    font-size: 1.6rem;
+    line-height: 1.25;
   }
 
-  .gnixar-learn-header {
-    margin-bottom: 36px;
+  .gnixar-main-container > p {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin-bottom: 32px;
   }
 
+  /* 🔥 2 CARDS ON MOBILE */
   .gnixar-learn-steps {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
   }
 
   .gnixar-learn-card {
-    padding: 22px 18px;
+    padding: 20px 16px;
+  }
+
+  .gnixar-step {
+    width: 40px;
+    height: 40px;
+    font-size: 0.7rem;
+  }
+
+  .gnixar-learn-card h3 {
+    font-size: 0.95rem;
+  }
+
+  .gnixar-learn-card p {
+    font-size: 0.85rem;
+  }
+
+  .gnixar-desc {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 32px;
+    padding: 0 8px;
+  }
+
+  .gnixar-stats {
+    flex-wrap: wrap;
+    gap: 24px;
+  }
+
+  .gnixar-stats h4 {
+    font-size: 1.25rem;
+  }
+
+  .gnixar-stats span {
+    font-size: 0.85rem;
+  }
+
+  .gnixar-cta {
+    margin-top: 32px;
   }
 }

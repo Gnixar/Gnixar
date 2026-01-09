@@ -32,8 +32,7 @@ export default function Differentiation() {
             <span>different</span>
           </h2>
           <p className="diff-sub">
-            Gnixar is built to bridge the gap between education and industry —
-            with outcomes that matter.
+            Gnixar is built to bridge the gap between education and industry with outcomes that matter.
           </p>
         </div>
 

@@ -2,8 +2,7 @@
 
 .mock-hero {
   width: 100%;
-  padding: 60px 20px;
-  /* Added side padding for small screens */
+  padding: 40px 20px;
   box-sizing: border-box;
 }
 
@@ -16,7 +15,6 @@
   justify-content: center;
   border-radius: 24px;
   overflow: hidden;
-  /* Ensures image doesn't bleed out of corners */
   position: relative;
   background:
     linear-gradient(to right,
@@ -28,7 +26,6 @@
   background-size: cover;
   background-position: center;
   padding: 60px;
-  /* Balanced inner spacing */
   box-sizing: border-box;
 }
 
@@ -235,37 +232,55 @@
 }
 
 /* ---------------- RESPONSIVE ---------------- */
+/* ---------------- RESPONSIVE FIXES ONLY ---------------- */
 
-@media (max-width: 1024px) {
+/* ----------- ≤1050px ----------- */
+@media (max-width: 1050px) {
   .mock-hero-main-container {
     padding: 40px;
+    height: auto; /* prevent content cut */
+    gap: 32px;
   }
 
   .mock-hero-content h1 {
-    font-size: 36px;
+    font-size: 38px;
+  }
+
+  .mock-hero-form {
+    max-width: 320px;
   }
 }
 
-@media (max-width: 850px) {
+/* ----------- ≤750px ----------- */
+@media (max-width: 750px) {
   .mock-hero-main-container {
     flex-direction: column;
-    text-align: center;
+    align-items: center;
+    height: auto;
+    padding: 32px 24px;
     background: #0f172a;
-    /* Fallback for mobile */
+    text-align: center;
   }
 
   .mock-hero-content {
     max-width: 100%;
-    margin-bottom: 40px;
   }
 
-  .mock-hero-actions,
+  .mock-hero-actions {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
   .mock-hero-stats {
     justify-content: center;
+    gap: 24px;
   }
 
-  .mock-hero-from {
+  /* FORM — NO DESIGN CHANGES */
+  .mock-hero-form {
     margin-left: 0;
+    margin-top: 32px;
     width: 100%;
+    max-width: 360px;
   }
 }

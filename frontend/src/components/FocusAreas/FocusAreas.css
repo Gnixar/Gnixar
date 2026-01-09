@@ -1,8 +1,7 @@
 /* ================= OUTER SECTION ================= */
 .focus-areas-section {
   width: 100%;
-  padding: 60px 5vw;
-
+  padding: 20px 5vw;
   display: flex;
   justify-content: center;
 }
@@ -29,8 +28,8 @@
     url("/focusareabg2.png");
 
   background-repeat: no-repeat;
-  background-size: cover;     /* ✅ always cover */
-  background-position: right; /* ✅ always centered */
+  background-size: cover;     
+  background-position: right;
 
 }
 
@@ -61,7 +60,7 @@
 /* ================= CARDS GRID ================= */
 .focus-cards-container {
   display: grid;
-  grid-template-columns: repeat(3, minmax(220px, 1fr));
+  grid-template-columns: repeat(4, minmax(220px, 1fr));
   gap: 18px;
 
   justify-items: center;

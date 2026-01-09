@@ -4,23 +4,28 @@ import "./CurriculumOverview.css";
 const curriculumData = [
   {
     module: "Module 01",
-    title: "Foundations of Design",
-    desc: "Learn design fundamentals, visual thinking, and problem solving.",
+    title: "Programming Fundamentals",
+    desc: "Learn core programming concepts including variables, control flow, functions, data structures, and problem-solving using JavaScript.",
   },
   {
     module: "Module 02",
-    title: "UI / UX & Product Thinking",
-    desc: "Design digital products with user-first and business-first mindset.",
+    title: "Frontend & Backend Development",
+    desc: "Build complete web applications using HTML, CSS, JavaScript, React for frontend, and Node.js, Express, REST APIs, and authentication for backend.",
   },
   {
     module: "Module 03",
-    title: "Industry Projects",
-    desc: "Work on real-world projects with mentors from top companies.",
+    title: "Databases & System Design",
+    desc: "Work with SQL & NoSQL databases, design efficient schemas, optimize queries, and understand system design fundamentals.",
   },
   {
     module: "Module 04",
-    title: "Portfolio & Career Prep",
-    desc: "Build portfolio, crack interviews, and prepare for placements.",
+    title: "Real-World Projects",
+    desc: "Develop production-ready full-stack projects following industry best practices, Git workflows, testing, and deployment.",
+  },
+  {
+    module: "Module 05",
+    title: "Interview Prep & Career Launch",
+    desc: "Prepare for technical interviews with DSA, coding challenges, mock interviews, resume building, and placement support.",
   },
 ];
 

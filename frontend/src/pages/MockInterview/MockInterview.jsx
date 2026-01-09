@@ -3,7 +3,7 @@ import './MockInterview.css'
 import Navbar from '../../components/Navbar/Navbar'
 import MockInterviewHeader from '../../components/MockInterviewHeader/MockInterviewHeader'
 import FAQ from '../../components/FAQ/FAQ'
-import ChooseInterviewer from '../../components/ChooseInterview/ChooseInterviewer'
+// import ChooseInterviewer from '../../components/ChooseInterview/ChooseInterviewer'
 import MockInterviewFeedback from '../../components/MockInterviewFeedback/MockInterviewFeedback'
 import MockInterviewVideo from '../../components/MockInterviewVideo/MockInterviewVideo'
 const MockInterview = () => {
@@ -11,7 +11,7 @@ const MockInterview = () => {
     <>
     <Navbar/>
     <MockInterviewHeader/>
-    <ChooseInterviewer/>
+    {/* <ChooseInterviewer/> */}
     <MockInterviewVideo />
     <MockInterviewFeedback/>
     <FAQ/>

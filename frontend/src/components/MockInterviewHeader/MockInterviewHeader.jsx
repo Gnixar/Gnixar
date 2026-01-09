@@ -58,7 +58,7 @@ const MockInterviewHeader = () => {
   };
 
   return (
-    <section className="mock-hero">
+    <section id="header" className="mock-hero">
       <ToastContainer position="top-right" theme="dark" autoClose={2000} />
 
       <div className="mock-hero-main-container">

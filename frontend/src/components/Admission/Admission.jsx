@@ -1,149 +1,94 @@
-import React from 'react';
-import {
-  Rocket,
-  IndianRupee,
-  TrendingUp,
-  Users,
-  GraduationCap,
-  FileText
-} from 'lucide-react';
-import './Admission.css';
+import React, { useState } from "react";
+import "./Admission.css";
 
-// --- Data for Career Outcomes ---
-const statsData = [
-  { id: 1, IconComponent: IndianRupee, value: '26 Lakhs', label: 'Average CTC' },
-  { id: 2, IconComponent: TrendingUp, value: '45 Lakhs', label: 'Highest CTC' },
-  { id: 3, IconComponent: Users, value: '70 +', label: 'Hiring partners' }
-];
-
-const partnersData = [
-  'Logo 1', 'Logo 2', 'Logo 3', 'Logo 4', 'Logo 5', 'Logo 6',
-  'Logo 7', 'Logo 8', 'Logo 9', 'Logo 10', 'Logo 11', 'Logo 12'
-];
-
-// --- Data for Admissions Process ---
-const admissionsSteps = [
+const admissionSteps = [
   {
-    number: 1,
-    title: 'Take the Gnixar Admissions Test (GAT)',
-    description:
-      "Designed to evaluate like a Founders' Office interview, the GAT tests aptitude, business acumen, first principles thinking, ability to sell & more."
+    step: "STEP 1",
+    title: "Complete the Application Online",
+    content: [
+      "Explore Courses: Understand our offerings in Full Stack Web Development and Data Science.",
+      "Choose Your Path: Learn the differences between Primero and Launchpad to match your goals.",
+      "Register: Fill out the registration form using the provided link and our team will get back to you."
+    ]
   },
   {
-    number: 2,
-    title: 'Submit your Application',
-    description:
-      'Upload an updated 1-pager resume & fill in your basic details to complete your application.'
+    step: "STEP 2",
+    title: "Take the Online Assessment",
+    content: [
+      "Purpose: Determines suitability for Full Stack Web Development and Data Science.",
+      "Requirement: Mandatory for all candidates.",
+      "Evaluation: Critical thinking, ability skills, communication, and behavioral traits.",
+      "Download Sample Online Assessment Paper"
+    ]
   },
   {
-    number: 3,
-    title: 'Interview with our Admissions Panel',
-    description:
-      'Shortlisted candidates book their slot for 2 stages: screening rounds & case evaluations, followed by conversations with Gnixar Leadership.'
+    step: "STEP 3",
+    title: "Appear for the Virtual Interview",
+    content: [
+      "Assessment Evaluation: Results are reviewed by our admissions team.",
+      "Interview Invitation: Shortlisted candidates attend a 30-minute virtual interview.",
+      "Discussion: Assessment topics and behavioral insights to understand aspirations."
+    ]
   },
   {
-    number: 4,
-    title: 'Receive the verdict',
-    description:
-      'You will receive your result within 10 working days of your last interview: selected, waitlisted, or rejected.'
+    step: "STEP 4",
+    title: "Final Admission Decision",
+    content: [
+      "Decision Notification: After the interview, we'll promptly inform you of our admission decision.",
+      "Admission Offer: Accepted students receive course details, fee structure, and cohort dates.",
+      "Confirmation Window: You'll have 7 days to secure your spot by paying the admission fee.",
+      "Keep an eye on your email for updates, including if further action is needed."
+    ]
   }
 ];
 
 const Admission = () => {
+  const [activeStep, setActiveStep] = useState(0);
+
   return (
-    <div className="gnixar-full-section">
+    <section className="gnixar-admission">
+      <div className="gnixar-admission-inner">
+        <h2 className="admission-main-title">Admission Process</h2>
 
-      {/* --- CAREER OUTCOMES COMPONENT --- */}
-      <section className="gnixar-outcomes-component">
-        <h2 className="outcomes-heading">
-          <Rocket size={36} color="#ff6600" className="heading-icon" />
-          Career Outcomes Achieved
-        </h2>
-
-        <p className="section-description">
-          Gnixar talent fuels some of India&apos;s most exciting startups through
-          full-time roles, internships, and mentorship.
-        </p>
-
-        {/* Stats */}
-        <div className="stats-container">
-          {statsData.map(stat => (
-            <div className="stat-card" key={stat.id}>
-              <div className="stat-icon">
-                <stat.IconComponent size={30} color="#ff6600" />
-              </div>
-              <div className="stat-value">{stat.value}</div>
-              <div className="stat-label">{stat.label}</div>
-            </div>
-          ))}
-        </div>
-
-        {/* Partners */}
-        <h3 className="partner-heading">
-          The Startup Ecosystem Backs Gnixar Talent
-        </h3>
-
-        <div className="partners-grid">
-          {partnersData.map((partner, index) => (
-            <div className="partner-logo" key={index}>
-              {partner}
-            </div>
-          ))}
-        </div>
-      </section>
-
-      <div className="section-divider"></div>
-
-      {/* --- ADMISSIONS PROCESS COMPONENT --- */}
-      <section className="gnixar-admissions-component">
-        <h2 className="admissions-heading">
-          Admissions for the PGP in Startup Leadership
-        </h2>
-
-        {/* Eligibility */}
-        <div className="eligibility-container">
-          <div className="eligibility-card">
-            <GraduationCap size={24} color="#ff6600" />
-            <div className="eligibility-details">
-              <span className="eligibility-title">Education</span>
-              <p className="eligibility-text">
-                A bachelor&apos;s degree in any discipline.
-              </p>
-            </div>
-          </div>
-
-          <div className="eligibility-card">
-            <FileText size={24} color="#ff6600" />
-            <div className="eligibility-details">
-              <span className="eligibility-title">Professional Experience</span>
-              <p className="eligibility-text">
-                1+ year of work experience in any domain (preferred).
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <h3 className="step-heading">A step-by-step guide</h3>
-
-        {/* Steps */}
+        {/* Step Navigation Bar */}
         <div className="steps-container">
-          {admissionsSteps.map(step => (
-            <div className="admission-step" key={step.number}>
-              <div className="step-number">{step.number}</div>
-              <div className="step-content">
-                <h4 className="step-title">{step.title}</h4>
-                <p className="step-description">{step.description}</p>
-              </div>
+          {admissionSteps.map((item, index) => (
+            <div
+              key={index}
+              className={`step-box ${activeStep === index ? "active" : ""}`}
+              onClick={() => setActiveStep(index)}
+            >
+              <div className="step-label">{item.step}</div>
+              <div className="step-title">{item.title}</div>
             </div>
           ))}
         </div>
 
-        <button className="apply-now-button">
-          Apply Now
-        </button>
-      </section>
+        {/* Content Box */}
+        <div className="content-display-box">
+          <h3 className="content-header">{admissionSteps[activeStep].title}</h3>
+          <hr className="content-divider" />
+          <ol className="content-list">
+            {admissionSteps[activeStep].content.map((point, i) => {
+               // Logic to split the bold prefix from the rest of the text
+               const [label, ...rest] = point.split(':');
+               return (
+                 <li key={i}>
+                   {rest.length > 0 ? (
+                     <><strong>{label}:</strong>{rest.join(':')}</>
+                   ) : point}
+                 </li>
+               );
+            })}
+          </ol>
+        </div>
 
-    </div>
+        <p className="gnixar-support">
+          Need Clarity? Contact us at{" "}
+          <a href="mailto:support@gnixar.com">contact@gnixar.com</a>
+        </p>
+      </div>
+    </section>
   );
 };
 

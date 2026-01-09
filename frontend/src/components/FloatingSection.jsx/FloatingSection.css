@@ -2,15 +2,17 @@
 .floating-section {
   position: absolute;
   left: 50%;
-  bottom: 20px;
+  bottom: 1px;
   transform: translateX(-50%);
   width: calc(100% - 32px);
   max-width: 900px;
-  background-color: #ffffff;
+  background: radial-gradient(circle at top left, rgba(56,189,248,0.15), rgba(15,23,42,0.95));
   padding: 20px 12px;
-  border-radius: 12px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
   z-index: 10;
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(148,163,184,0.35);
 }
 
 .floating-container {
@@ -26,29 +28,37 @@
   align-items: center;
   gap: 12px;
   flex: 1;
+  transition: transform 0.25s ease, background 0.25s ease;
+  padding: 8px 12px;
+  border-radius: 12px;
 }
 
+
 .icon-circle {
-  min-width: 40px;
-  height: 40px;
+  min-width: 44px;
+  height: 44px;
   border-radius: 50%;
-  background-color: #e0f2ff;
+  background: linear-gradient(135deg, #60a5fa, #a5b4fc);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #2563eb;
+  color: white;
+  transition: transform 0.25s ease, background 0.25s ease;
 }
 
 .floating-item p {
-  color: #1f2937;
-  font-weight: 500;
+  color: #e2e8f0;
+  font-weight: 600;
   line-height: 1.4;
+  margin: 0;
 }
 
+/* Divider */
 .divider {
   width: 1px;
   height: 48px;
-  background-color: #e5e7eb;
+  background-color: rgba(148,163,184,0.35);
+  transition: all 0.25s ease;
 }
 
 /* ---------------- <=1050px ---------------- */
@@ -58,31 +68,31 @@
     transform: none;
     width: calc(100% - 40px);
     margin: 0 auto 20px auto;
-    padding: 18px 10px; /* slightly smaller padding */
+    padding: 18px 14px;
   }
 
   .floating-container {
-    gap: 16px; /* smaller spacing between items */
+    gap: 16px;
     flex-wrap: wrap; /* allow items to wrap */
+  }
+
+  .floating-item {
+    flex: 1 1 45%; /* two items per row */
+    gap: 10px;
+  }
+
+  .icon-circle {
+    min-width: 38px;
+    height: 38px;
+  }
+
+  .floating-item p {
+    font-size: 15px;
   }
 
   .divider {
     width: 100%;
     height: 1px; /* horizontal divider */
-  }
-
-  .floating-item {
-    flex: 1 1 45%; /* allow two items per row if needed */
-    gap: 10px;
-  }
-
-  .icon-circle {
-    min-width: 36px;
-    height: 36px;
-  }
-
-  .floating-item p {
-    font-size: 15px;
   }
 }
 
@@ -90,12 +100,12 @@
 @media (max-width: 750px) {
   .floating-section {
     width: calc(100% - 24px);
-    padding: 16px 8px; /* smaller padding for small screens */
+    padding: 16px 12px;
   }
 
   .floating-container {
+    flex-direction: column;
     gap: 12px;
-    flex-direction: column; /* stack items vertically */
   }
 
   .floating-item {
@@ -114,6 +124,6 @@
 
   .divider {
     width: 100%;
-    height: 1px; /* keep horizontal divider */
+    height: 1px;
   }
 }
