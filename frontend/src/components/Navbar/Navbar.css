@@ -206,8 +206,9 @@
     display: block;
     position: fixed;
     top: 72px;
-    left: 0;
+    right: 0;
     width: 100%;
+    max-width: 320px;
     height: calc(100vh - 72px);
     background: #fff;
     transform: translateX(100%);
@@ -284,7 +285,10 @@
   .mobile-menu-overlay {
     top: 60px;
     height: calc(100vh - 60px);
+    max-width: 100%; /* 🔥 allows full-width menu only on small phones */
   }
+
+
 
   .btn-mobile {
     width: 100%;

@@ -28,11 +28,32 @@ const Navbar = () => {
     }
   }, [programs, activeCategory]);
 
+  /* ---------- LOCK BODY SCROLL WHEN LOGIN OPEN ---------- */
+  useEffect(() => {
+    if (showLogin) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+
+    return () => {
+      document.body.style.overflow = "auto";
+    };
+  }, [showLogin]);
+
+  /* ---------- AUTO CLOSE MOBILE MENU WHEN LOGIN OPENS ---------- */
+  useEffect(() => {
+    if (showLogin) {
+      setMobileOpen(false);
+      setMobileProgramsOpen(false);
+      setOpenMobileCategory(null);
+    }
+  }, [showLogin]);
+
   const toggleMobile = () => {
     setMobileOpen(prev => !prev);
     setMobileProgramsOpen(false);
     setOpenMobileCategory(null);
-    setShowLogin(false);
   };
 
   const handleLogout = () => {
@@ -64,9 +85,7 @@ const Navbar = () => {
       </div>
 
       <div className="course-details">
-        <h4 className="details-header">
-          Courses in {activeCategory}
-        </h4>
+        <h4 className="details-header">Courses in {activeCategory}</h4>
 
         {activeDetails?.details?.map(course => (
           <a key={course.name} href={course.link} className="detail-link">
@@ -146,17 +165,19 @@ const Navbar = () => {
               <span className="navbar-user">
                 Hi, {user.username || user.email}
               </span>
-              <button
-                className="btn-login-desktop"
-                onClick={handleLogout}
-              >
+              <button className="btn-login-desktop" onClick={handleLogout}>
                 Logout
               </button>
             </>
           ) : (
             <button
               className="btn-login-desktop"
-              onClick={() => setShowLogin(true)}
+              onClick={() => {
+                setMobileOpen(false);
+                setMobileProgramsOpen(false);
+                setOpenMobileCategory(null);
+                setShowLogin(true);
+              }}
             >
               Login
             </button>
@@ -168,42 +189,47 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* ---------- MOBILE MENU ---------- */}
-      <div className={`mobile-menu-overlay ${mobileOpen ? "open" : ""}`}>
-        <div className="mobile-nav-content">
-          <button
-            className="mobile-main-btn"
-            onClick={() => setMobileProgramsOpen(prev => !prev)}
-          >
-            Programs {mobileProgramsOpen ? "▲" : "▼"}
-          </button>
+      {/* ---------- MOBILE MENU (REMOVED WHEN LOGIN IS OPEN) ---------- */}
+      {!showLogin && (
+        <div className={`mobile-menu-overlay ${mobileOpen ? "open" : ""}`}>
+          <div className="mobile-nav-content">
+            <button
+              className="mobile-main-btn"
+              onClick={() => setMobileProgramsOpen(prev => !prev)}
+            >
+              Programs {mobileProgramsOpen ? "▲" : "▼"}
+            </button>
 
-          {mobileProgramsOpen && renderMobilePrograms()}
+            {mobileProgramsOpen && renderMobilePrograms()}
 
-          <Link to="/mockinterview" className="mobile-link">Mock Interview</Link>
-          <Link to="/aboutus" className="mobile-link">About</Link>
-          <Link to="/contactus" className="mobile-link">Contact</Link>
+            <Link to="/mockinterview" className="mobile-link">Mock Interview</Link>
+            <Link to="/aboutus" className="mobile-link">About</Link>
+            <Link to="/contactus" className="mobile-link">Contact</Link>
 
-          <div className="mobile-auth">
-            {user ? (
-              <button className="btn-mobile" onClick={handleLogout}>
-                Logout
-              </button>
-            ) : (
-              <button
-                className="btn-mobile"
-                onClick={() => {
-                  setShowLogin(true);
-                  setMobileOpen(false);
-                }}
-              >
-                Login
-              </button>
-            )}
+            <div className="mobile-auth">
+              {user ? (
+                <button className="btn-mobile" onClick={handleLogout}>
+                  Logout
+                </button>
+              ) : (
+                <button
+                  className="btn-mobile"
+                  onClick={() => {
+                    setMobileOpen(false);
+                    setMobileProgramsOpen(false);
+                    setOpenMobileCategory(null);
+                    setShowLogin(true);
+                  }}
+                >
+                  Login
+                </button>
+              )}
+            </div>
           </div>
         </div>
-      </div>
+      )}
 
+      {/* ---------- LOGIN MODAL ---------- */}
       {showLogin && (
         <Login
           onClose={() => setShowLogin(false)}

@@ -41,7 +41,7 @@ export default function FAQ() {
   const [openIndex, setOpenIndex] = useState(null);
 
   return (
-    <div className="faq-container">
+    <div className="faq-container" id="faq">
       <h2 className="faq-title">Got Questions? We're here to answer them for you</h2>
 
 

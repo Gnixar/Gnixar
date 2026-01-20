@@ -16,6 +16,29 @@ const MockInterviewHeader = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
+  // 🔐 VERIFY PAYMENT
+  const verifyPayment = async (paymentData) => {
+    try {
+      const res = await fetch("api/payment/verify", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(paymentData),
+      });
+
+      const data = await res.json();
+
+      if (data.success) {
+        toast.success("Payment successful! Redirecting...");
+        window.location.href = data.redirectUrl;
+      } else {
+        toast.error("Payment verification failed");
+      }
+    } catch (err) {
+      toast.error("Payment verification error");
+    }
+  };
+
+  // 💳 CREATE ORDER + OPEN RAZORPAY
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -27,7 +50,7 @@ const MockInterviewHeader = () => {
     try {
       setLoading(true);
 
-      const response = await fetch("/api/interview/mock", {
+      const response = await fetch("api/payment/mock", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
@@ -36,19 +59,35 @@ const MockInterviewHeader = () => {
       const data = await response.json();
 
       if (!response.ok) {
-        toast.error(data.message || "Something went wrong");
+        toast.error(data.message || "Unable to create payment");
         return;
       }
 
-      toast.success(data.message || "Redirecting to interview...");
+      const options = {
+        key: data.key,
+        amount: data.amount,
+        currency: "INR",
+        name: "Gnixar Mock Interview",
+        description: "Mock Interview Payment",
+        order_id: data.orderId,
 
-      // OPTIONAL: clear form
-      setFormData({ name: "", email: "", phone: "" });
+        handler: function (response) {
+          verifyPayment(response);
+        },
 
-      // 🔥 REDIRECT AFTER 2 SECONDS
-      setTimeout(() => {
-        window.location.href = "https://interviewx-connect.koviki.com/";
-      }, 2000);
+        prefill: {
+          name: formData.name,
+          email: formData.email,
+          contact: formData.phone,
+        },
+
+        theme: {
+          color: "#0f172a",
+        },
+      };
+
+      const razorpay = new window.Razorpay(options);
+      razorpay.open();
 
     } catch (error) {
       toast.error("Server not responding");
@@ -62,7 +101,6 @@ const MockInterviewHeader = () => {
       <ToastContainer position="top-right" theme="dark" autoClose={2000} />
 
       <div className="mock-hero-main-container">
-        {/* LEFT CONTENT */}
         <div className="mock-hero-content">
           <h1>
             Crack Your Next <span>Tech Interview</span>
@@ -72,7 +110,6 @@ const MockInterviewHeader = () => {
           <p>Practice with industry experts and get real-time feedback.</p>
         </div>
 
-        {/* FORM */}
         <div className="mock-hero-form">
           <h2>Start Your Interview</h2>
 
@@ -102,7 +139,7 @@ const MockInterviewHeader = () => {
             />
 
             <button type="submit" disabled={loading}>
-              {loading ? "Submitting..." : "Start Your Interview"}
+              {loading ? "Processing..." : "Proceed to Payment"}
             </button>
           </form>
         </div>

@@ -15,13 +15,13 @@ const SuccessStories = () => {
   return (
     <div className="success-section">
       <div className="success-section-main">
+
+        {/* ✅ FORM RENDERED DIRECTLY (NO WRAPPER) */}
         {openForm && (
-          <div className="form-overlay">
-            <Forms
-              onCancel={() => setOpenForm(false)}
-              onSuccess={() => setOpenForm(false)}
-            />
-          </div>
+          <Forms
+            onCancel={() => setOpenForm(false)}
+            onSuccess={() => setOpenForm(false)}
+          />
         )}
 
         <div className="success-section-heading">

@@ -1,35 +1,38 @@
-// server.js
+// -------------------- 1️⃣ LOAD ENV FIRST --------------------
+import dotenv from "dotenv";
+dotenv.config();
+
+// -------------------- 2️⃣ IMPORT DEPENDENCIES --------------------
 import express from "express";
 import cors from "cors";
-import dotenv from "dotenv";
 import morgan from "morgan";
 import { connectDB } from "./config/db.js";
 
 import AuthRouter from "./routes/AuthRouter.js";
 import FormRouter from "./routes/FormRouter.js";
 import BrochureRouter from "./routes/BrochureRouter.js";
-import InterviewRouter from './routes/InterviewRouter.js'
+import InterviewRouter from "./routes/InterviewRouter.js";
+import PaymentRouter from "./routes/payment.route.js";
 
-// Load environment variables
-dotenv.config();
-
+// -------------------- 3️⃣ INITIALIZE APP --------------------
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-/* -------------------- MIDDLEWARES -------------------- */
+// -------------------- 4️⃣ MIDDLEWARES --------------------
 app.use(cors());
+
+// ✅ Normal body parsers
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// Logger (only in development)
 if (process.env.NODE_ENV !== "production") {
   app.use(morgan("dev"));
 }
 
-/* -------------------- DATABASE -------------------- */
+// -------------------- 5️⃣ DATABASE CONNECTION --------------------
 connectDB();
 
-/* -------------------- ROUTES -------------------- */
+// -------------------- 6️⃣ ROUTES --------------------
 app.get("/", (req, res) => {
   res.status(200).json({
     success: true,
@@ -41,10 +44,9 @@ app.use("/api/auth", AuthRouter);
 app.use("/api/form", FormRouter);
 app.use("/api/brochure", BrochureRouter);
 app.use("/api/interview", InterviewRouter);
+app.use("/api/payment", PaymentRouter); // Razorpay routes (webhook raw handled inside router)
 
-
-
-/* -------------------- 404 HANDLER -------------------- */
+// -------------------- 7️⃣ 404 HANDLER --------------------
 app.use((req, res) => {
   res.status(404).json({
     success: false,
@@ -52,17 +54,16 @@ app.use((req, res) => {
   });
 });
 
-/* -------------------- GLOBAL ERROR HANDLER -------------------- */
+// -------------------- 8️⃣ GLOBAL ERROR HANDLER --------------------
 app.use((err, req, res, next) => {
-  console.error(err.stack);
-
-  res.status(err.statusCode || 500).json({
+  console.error("GLOBAL ERROR:", err);
+  res.status(500).json({
     success: false,
-    message: err.message || "Internal Server Error",
+    message: "Internal Server Error",
   });
 });
 
-/* -------------------- START SERVER -------------------- */
-app.listen(PORT, "127.0.0.1", () => {
+// -------------------- 9️⃣ START SERVER --------------------
+app.listen(PORT, "0.0.0.0", () => {
   console.log(`🚀 Server running on port ${PORT}`);
 });

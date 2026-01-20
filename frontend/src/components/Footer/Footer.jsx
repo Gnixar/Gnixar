@@ -8,15 +8,16 @@ const Footer = () => {
       <div className="footer-container">
         {/* Company Info */}
         <div className="footer-section company">
-          <h2>GNIXAR</h2>
+          <img src="/logo2.png" alt="GNIXAR Logo" className="footer-logo" />
+
           <p>
             GNIXAR is a global learning platform offering industry-relevant programs in Data Science,
             AI, Web Development, Product Management, and more.
           </p>
           <div className="social-icons">
-            <a href="#" aria-label="Facebook"><Facebook /></a>
-            <a href="#" aria-label="Instagram"><Instagram /></a>
-            <a href="#" aria-label="LinkedIn"><Linkedin /></a>
+            <a href="https://www.facebook.com/share/1BoQL9F3RW/" aria-label="Facebook"><Facebook /></a>
+            <a href="https://www.instagram.com/gnixar?igsh=MWtyZGVjYXptOGM5cA==" aria-label="Instagram"><Instagram /></a>
+            <a href="https://www.linkedin.com/company/gnixar/" aria-label="LinkedIn"><Linkedin /></a>
           </div>
         </div>
 
@@ -37,8 +38,8 @@ const Footer = () => {
           <ul>
             <li><a href="/aboutus">About Us</a></li>
             <li><a href="/contactus">Contact Us</a></li>
-            <li><a href="/faq">FAQ</a></li>
-            <li><a href="/blog">Blog</a></li>
+            <li><a href="#faq">FAQ</a></li>
+            <li><a href="/commingsoon">Blog</a></li>
           </ul>
         </div>
 

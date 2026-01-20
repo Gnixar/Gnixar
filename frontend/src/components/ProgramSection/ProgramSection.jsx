@@ -1,4 +1,3 @@
-// src/pages/ProgramsPage.jsx
 import React from "react";
 import { Link } from "react-router-dom";
 import {
@@ -19,7 +18,7 @@ const PROGRAMS_DATA = [
   { category: "Web Development", Icon: Code, details: [], link: "/commingsoon" },
   { category: "Product Management", Icon: Users, details: [], link: "/commingsoon" },
   { category: "Cyber Security", Icon: Shield, details: [], link: "/commingsoon" },
-  { category: "Cloud Computing", Icon: Cloud, details: [], link: "/commingsoon" },
+  { category: "Cloud Computing Advanced", Icon: Cloud, details: [], link: "/commingsoon" },
   { category: "DevOps", Icon: HardHat, details: [], link: "/commingsoon" },
   { category: "Blockchain", Icon: LinkIcon, details: [], link: "/commingsoon" },
 ];
@@ -40,26 +39,28 @@ const ProgramSection = () => {
           const IconComponent = program.Icon;
 
           return (
-            <div key={program.category} className="program-card">
-              <div className="program-card-header">
-                {IconComponent && (
-                  <IconComponent className="category-icon" />
+            <Link
+              key={program.category}
+              to={program.link}
+              className="program-card-link"
+            >
+              <div className="program-card">
+                <div className="program-card-header">
+                  {IconComponent && <IconComponent className="category-icon" />}
+                  <h2>{program.category}</h2>
+                </div>
+
+                {program.details.length > 0 && (
+                  <ul className="program-course-list">
+                    {program.details.map((course, idx) => (
+                      <li key={idx}>{course}</li>
+                    ))}
+                  </ul>
                 )}
-                <h2>{program.category}</h2>
+
+                <span className="view-all-link">View All Courses</span>
               </div>
-
-              {program.details.length > 0 && (
-                <ul className="program-course-list">
-                  {program.details.map((course, idx) => (
-                    <li key={idx}>{course}</li>
-                  ))}
-                </ul>
-              )}
-
-              <Link to={program.link} className="view-all-link">
-                View All Courses
-              </Link>
-            </div>
+            </Link>
           );
         })}
       </div>

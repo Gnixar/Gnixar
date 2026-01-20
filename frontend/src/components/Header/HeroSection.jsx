@@ -12,7 +12,7 @@ const HeroSection = () => {
           </h1>
 
           <p className="hero-subtitle">
-            Welcome to EduPlatform — your one-stop destination for cutting-edge
+            Welcome to Gnixar — your one-stop destination for cutting-edge
             courses, expert mentors, and career-focused learning paths. Upskill
             and achieve your dreams!
           </p>

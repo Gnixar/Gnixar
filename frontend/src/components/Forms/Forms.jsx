@@ -31,9 +31,7 @@ const Forms = ({ onCancel, onSuccess }) => {
     try {
       const response = await fetch("/api/form/submit", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(values),
       });
 
@@ -54,73 +52,96 @@ const Forms = ({ onCancel, onSuccess }) => {
   };
 
   return (
-    <div className="unique-form-container">
+    <div className="form1-overlay">
       <ToastContainer theme="dark" />
-      <h2 className="form-title">Apply Now</h2>
 
-      <Formik
-        initialValues={initialValues}
-        validationSchema={SignupSchema}
-        onSubmit={handleSubmit}
-      >
-        {({ isSubmitting }) => (
-          <Form className="unique-form">
-            <Field
-              name="name"
-              placeholder="Full Name"
-              className="unique-input"
-            />
-            <ErrorMessage name="name" component="div" className="error-msg" />
+      <div className="form1-container">
+        <h2 className="form1-title">Apply Now</h2>
 
-            <Field
-              name="email"
-              placeholder="Email"
-              className="unique-input"
-            />
-            <ErrorMessage name="email" component="div" className="error-msg" />
+        <Formik
+          initialValues={initialValues}
+          validationSchema={SignupSchema}
+          onSubmit={handleSubmit}
+        >
+          {({ isSubmitting }) => (
+            <Form className="form1-form">
+              <Field
+                name="name"
+                placeholder="Full Name"
+                className="form1-input"
+              />
+              <ErrorMessage
+                name="name"
+                component="div"
+                className="form1-error-msg"
+              />
 
-            <Field
-              name="phone"
-              placeholder="Phone"
-              className="unique-input"
-            />
-            <ErrorMessage name="phone" component="div" className="error-msg" />
+              <Field
+                name="email"
+                placeholder="Email"
+                className="form1-input"
+              />
+              <ErrorMessage
+                name="email"
+                component="div"
+                className="form1-error-msg"
+              />
 
-            <Field
-              name="degree"
-              placeholder="Degree"
-              className="unique-input"
-            />
-            <ErrorMessage name="degree" component="div" className="error-msg" />
+              <Field
+                name="phone"
+                placeholder="Phone"
+                className="form1-input"
+              />
+              <ErrorMessage
+                name="phone"
+                component="div"
+                className="form1-error-msg"
+              />
 
-            <Field as="select" name="course" className="unique-input">
-              <option value="">Select Course</option>
-              <option value="Web Development">Web Development</option>
-              <option value="AI & ML">AI & ML</option>
-              <option value="Data Science">Data Science</option>
-            </Field>
-            <ErrorMessage name="course" component="div" className="error-msg" />
+              <Field
+                name="degree"
+                placeholder="Degree"
+                className="form1-input"
+              />
+              <ErrorMessage
+                name="degree"
+                component="div"
+                className="form1-error-msg"
+              />
 
-            <div className="form-actions">
-              <button
-                type="button"
-                className="form-cancel-btn"
-                onClick={onCancel}
-              >
-                Cancel
-              </button>
+              <Field as="select" name="course" className="form1-input">
+                <option value="">Select Course</option>
+                <option value="Web Development">Web Development</option>
+                <option value="AI & ML">AI & ML</option>
+                <option value="Data Science">Data Science</option>
+              </Field>
+              <ErrorMessage
+                name="course"
+                component="div"
+                className="form1-error-msg"
+              />
 
-              <button
-                type="submit"
-                className="unique-submit-btn"
-                disabled={isSubmitting}
-              >
-                {isSubmitting ? "Submitting..." : "Submit"}
-              </button>
-            </div>
-          </Form>
-        )}
-      </Formik>
+              <div className="form1-actions">
+                <button
+                  type="button"
+                  className="form1-cancel-btn"
+                  onClick={onCancel}
+                >
+                  Cancel
+                </button>
+
+                <button
+                  type="submit"
+                  className="form1-submit-btn"
+                  disabled={isSubmitting}
+                >
+                  {isSubmitting ? "Submitting..." : "Submit"}
+                </button>
+              </div>
+            </Form>
+          )}
+        </Formik>
+      </div>
     </div>
   );
 };
