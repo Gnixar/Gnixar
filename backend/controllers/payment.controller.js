@@ -6,7 +6,7 @@ export const createOrder = async (req, res) => {
     const { name, email, phone } = req.body;
 
     const order = await razorpay.orders.create({
-      amount: 1 * 100, // ₹1
+      amount: 98 * 100, // ₹98
       currency: "INR",
       receipt: `receipt_${Date.now()}`,
     });
